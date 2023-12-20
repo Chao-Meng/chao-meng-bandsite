@@ -212,7 +212,8 @@ body {
     opacity: 75%;
     margin-left: 1rem;
     margin-bottom: 0;
-    margin-top: 1.5rem;
+    margin-top: 0.5rem;
+    padding-top: 1rem;
     @include mobile {
       font-size: 1.5rem;
       font-weight: 700;
@@ -242,6 +243,116 @@ body {
         //object-fit works for <img>
         object-fit: cover;
       }
+    }
+  }
+}
+
+.footer {
+  margin-top: 1rem;
+  padding-left: 1rem;
+  background-color: #323232;
+  color: white;
+  @include mobile {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  &__title {
+    @include mobile {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+  }
+  &__social {
+    @include mobile {
+      display: flex;
+      justify-content: flex-start;
+      gap: 2.3rem;
+    }
+    &--item {
+      @include mobile {
+        width: 110%;
+        height: auto;
+      }
+    }
+  }
+
+  &__office {
+    @include mobile {
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+      margin-top: 1.5rem;
+      @include footer__font;
+    }
+  }
+  &__address {
+    @include mobile {
+      @include footer__font;
+      font-weight: 100;
+      margin-bottom: 0.5rem;
+    }
+  }
+  &__email {
+    @include mobile {
+      @include footer__font;
+      margin-bottom: 0.7rem;
+      font-weight: 100;
+    }
+    &--one {
+      @include mobile {
+        @include footer__font;
+        margin-bottom: 0.6rem;
+      }
+    }
+    &--two {
+      @include mobile {
+        @include footer__font;
+        //argin-bottom: 1rem;
+      }
+    }
+  }
+  &__group {
+    @include mobile {
+      @include footer__font;
+      margin-bottom: 0;
+      font-weight: 600;
+    }
+    &--two {
+      @include mobile {
+        @include footer__font;
+        margin-top: 1rem;
+        margin-bottom: 0rem;
+        font-weight: 600;
+      }
+    }
+  }
+  &__agent {
+    @include mobile {
+      @include footer__font;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    &--two {
+      @include mobile {
+        @include footer__font;
+        margin-top: 1rem;
+        margin-bottom: 0.4rem;
+      }
+    }
+  }
+  &__logo {
+    @include mobile {
+      margin-top: 3.2rem;
+    }
+  }
+  &__copyright {
+    @include mobile {
+      margin-top: 1rem;
+      font-size: 0.7rem;
+      line-height: 20px;
+      font-weight: 100;
     }
   }
 }

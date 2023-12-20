@@ -30,3 +30,10 @@
   opacity: 80%;
   line-height: 1.38rem;
 }
+
+@mixin footer__font {
+  font-size: 0.81rem;
+  line-height: 18px;
+  // font-weight: 400;
+  // margin-top: 1.5rem;
+}
