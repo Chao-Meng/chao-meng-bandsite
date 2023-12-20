@@ -1,24 +1,32 @@
 @use "./base/global.scss" as *;
 @use "./partials/mixins" as *;
 @use "./partials/variables" as *;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 body {
-  font-family: "Avenir", Arial, sans-serif;
+  font-family: "Avenir Next", Prompt, sans-serif;
+  margin-left: 0;
+  margin-right: 0;
 }
 .nav {
   background-color: #323232;
-
   @include mobile {
     width: 100%;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
     align-items: center;
+    margin-left: 0;
+    margin-right: 0;
   }
   @include tablet {
     display: flex;
     justify-content: flex-start;
     width: 100%;
-    padding-left: 3rem;
+    //padding-left: 3rem;
     font-size: 1.5rem;
   }
   @include desktop {
@@ -28,10 +36,15 @@ body {
     padding-left: 3rem;
     font-size: 1.5rem;
   }
+
   &__h2-title {
     @include mobile {
       margin: 0.5rem;
     }
+  }
+  &__logo {
+    width: 7.5rem;
+    height: 1.25rem;
   }
   &__title {
     text-decoration: none;
@@ -43,6 +56,7 @@ body {
       font-weight: 100;
     }
   }
+
   &__list {
     color: white;
     margin: 2.5rem;
@@ -53,7 +67,7 @@ body {
       align-items: center;
       font-size: 0.7rem;
       margin: 0;
-      padding-bottom: 0.5rem;
+      padding-bottom: 0.8rem;
       gap: 6rem;
       padding-left: 0;
     }
@@ -71,6 +85,163 @@ body {
       gap: 4.5rem;
       list-style-type: none;
       font-size: 1.2rem;
+    }
+  }
+}
+
+.hero {
+  &__card {
+    background-image: url(../assets/images/hero-bio.jpg);
+    margin-top: 0rem;
+    display: flex;
+    align-items: center;
+    //add a non-static position,
+    //Pseudo-element relative to positioned non-static ancestor
+    position: relative;
+    @include mobile {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 11.3rem;
+    }
+  }
+  &__card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    //Black mask with 50% opacity
+    background-color: rgba(50, 50, 50, 0.5);
+    z-index: 1;
+  }
+  &__title {
+    color: white;
+    font-weight: 100;
+    line-height: 2rem;
+    //Keeps the text on top of the black mask
+    z-index: 2;
+    margin-left: 1rem;
+  }
+}
+
+.card {
+  &__container {
+    @include mobile {
+      display: flex;
+      justify-content: flex-start;
+      // align-items: center;
+      flex-direction: column;
+    }
+  }
+  &__title {
+    opacity: 75%;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+    @include mobile {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+  }
+  &__img {
+    @include mobile {
+      width: 90%;
+      height: auto;
+      margin-left: 1rem;
+      margin-right: 1rem;
+      padding: 0;
+      margin-bottom: 0;
+      img {
+        width: 100%;
+        height: 10rem;
+        //object-fit works for <img>
+        object-fit: cover;
+      }
+    }
+  }
+
+  &__saying {
+    @include mobile {
+      @include card__saying--style;
+      margin-bottom: 0;
+    }
+  }
+
+  &__name {
+    @include mobile {
+      @include card__saying--style;
+      margin-top: 0.5rem;
+    }
+  }
+
+  &__subtitle {
+    @include mobile {
+      font-size: 0.85rem;
+      line-height: 1.38rem;
+      font-weight: 600;
+      opacity: 80%;
+      // display: flex;
+      // justify-content: flex-start;
+      margin-left: 1rem;
+      padding-left: 0;
+      margin-top: 0.5rem;
+    }
+  }
+
+  &__content--part {
+    @include mobile {
+      font-size: 0.82rem;
+      line-height: 1.125rem;
+      margin-left: 1rem;
+      margin-right: 1rem;
+      margin-top: 0rem;
+      font-weight: 400;
+      padding-right: 0.85rem;
+      opacity: 80%;
+    }
+  }
+}
+.quote__italic {
+  font-style: italic;
+}
+.album {
+  background-color: #e1e1e1;
+  &__title {
+    opacity: 75%;
+    margin-left: 1rem;
+    margin-bottom: 0;
+    margin-top: 1.5rem;
+    @include mobile {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+  }
+  &__container {
+    @include mobile {
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: flex-start;
+      width: 100%;
+    }
+  }
+  &__item {
+    @include mobile {
+      width: 90%;
+      height: auto;
+      margin: 1rem 1rem 0 1rem;
+      padding: 0;
+      img {
+        width: 100%;
+        height: 10rem;
+        //object-fit works for <img>
+        object-fit: cover;
+      }
     }
   }
 }
