@@ -1,18 +1,10 @@
-@use "./base/global.scss" as *;
+//@use "./base/global.scss" as *;
 @use "./partials/mixins" as *;
 @use "./partials/variables" as *;
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-body {
-  font-family: "Avenir Next", Prompt, sans-serif;
-  margin-left: 0;
-  margin-right: 0;
-}
+
 .nav {
-  background-color: #323232;
+  background-color: $primary-bandsite-black;
+  padding-bottom: 0;
   @include mobile {
     width: 100%;
     display: flex;
@@ -21,12 +13,13 @@ body {
     align-items: center;
     margin-left: 0;
     margin-right: 0;
+    padding-top: 0;
+    margin-top: 0;
   }
   @include tablet {
     display: flex;
     justify-content: flex-start;
     width: 100%;
-    //padding-left: 3rem;
     font-size: 1.5rem;
   }
   @include desktop {
@@ -48,7 +41,7 @@ body {
   }
   &__title {
     text-decoration: none;
-    color: #ffffff;
+    color: $primary-white;
     font-weight: 100;
     font-size: 2rem;
     @include mobile {
@@ -58,8 +51,8 @@ body {
   }
 
   &__list {
-    color: white;
-    margin: 2.5rem;
+    color: $primary-white;
+    margin-top: 2.5rem;
     list-style-type: none;
     @include mobile {
       display: flex;
@@ -67,7 +60,6 @@ body {
       align-items: center;
       font-size: 0.7rem;
       margin: 0;
-      padding-bottom: 0.8rem;
       gap: 6rem;
       padding-left: 0;
     }
@@ -85,6 +77,40 @@ body {
       gap: 4.5rem;
       list-style-type: none;
       font-size: 1.2rem;
+    }
+  }
+  &__item {
+    @include mobile {
+      position: relative;
+      display: inline-block;
+      padding: 0.5rem;
+      &::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -2px;
+        width: 50%;
+        height: 10px;
+        background: transparent;
+        transition: background-color 0.3s;
+      }
+      &:hover::after {
+        background-color: $primary-white;
+      }
+    }
+
+    @include tablet {
+      border-bottom: 2px solid transparent;
+      padding: 0.5rem;
+      color: $secondary-mercury;
+      transition: color 0.3s, border-bottom-color 0.3s;
+      &.active,
+      &:hover {
+        color: $primary-white;
+        font-weight: 700;
+        border-bottom-color: $primary-white;
+      }
     }
   }
 }
@@ -117,7 +143,7 @@ body {
     z-index: 1;
   }
   &__title {
-    color: white;
+    color: $primary-white;
     font-weight: 100;
     line-height: 2rem;
     //Keeps the text on top of the black mask
@@ -131,7 +157,6 @@ body {
     @include mobile {
       display: flex;
       justify-content: flex-start;
-      // align-items: center;
       flex-direction: column;
     }
   }
@@ -182,8 +207,6 @@ body {
       line-height: 1.38rem;
       font-weight: 600;
       opacity: 80%;
-      // display: flex;
-      // justify-content: flex-start;
       margin-left: 1rem;
       padding-left: 0;
       margin-top: 0.5rem;
@@ -207,7 +230,7 @@ body {
   font-style: italic;
 }
 .album {
-  background-color: #e1e1e1;
+  background-color: $secondary-mercury;
   &__title {
     opacity: 75%;
     margin-left: 1rem;
@@ -250,8 +273,8 @@ body {
 .footer {
   margin-top: 1rem;
   padding-left: 1rem;
-  background-color: #323232;
-  color: white;
+  background-color: $primary-bandsite-black;
+  color: $primary-white;
   @include mobile {
     display: flex;
     justify-content: space-around;

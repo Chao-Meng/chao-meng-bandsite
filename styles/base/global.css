@@ -1,1 +1,12 @@
-/*# sourceMappingURL=global.css.map */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Avenir Next", Prompt, sans-serif;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+}/*# sourceMappingURL=global.css.map */

@@ -1,17 +1,6 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Avenir Next", Prompt, sans-serif;
-  margin-left: 0;
-  margin-right: 0;
-}
-
 .nav {
   background-color: #323232;
+  padding-bottom: 0;
 }
 @media (min-width: 320px) and (max-width: 767px) {
   .nav {
@@ -22,6 +11,8 @@ body {
     align-items: center;
     margin-left: 0;
     margin-right: 0;
+    padding-top: 0;
+    margin-top: 0;
   }
 }
 @media (min-width: 767px) and (max-width: 1280px) {
@@ -63,8 +54,8 @@ body {
   }
 }
 .nav__list {
-  color: white;
-  margin: 2.5rem;
+  color: #ffffff;
+  margin-top: 2.5rem;
   list-style-type: none;
 }
 @media (min-width: 320px) and (max-width: 767px) {
@@ -74,7 +65,6 @@ body {
     align-items: center;
     font-size: 0.7rem;
     margin: 0;
-    padding-bottom: 0.8rem;
     gap: 6rem;
     padding-left: 0;
   }
@@ -96,6 +86,40 @@ body {
     gap: 4.5rem;
     list-style-type: none;
     font-size: 1.2rem;
+  }
+}
+@media (min-width: 320px) and (max-width: 767px) {
+  .nav__item {
+    position: relative;
+    display: inline-block;
+    padding: 0.5rem;
+  }
+  .nav__item::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -2px;
+    width: 50%;
+    height: 10px;
+    background: transparent;
+    transition: background-color 0.3s;
+  }
+  .nav__item:hover::after {
+    background-color: #ffffff;
+  }
+}
+@media (min-width: 767px) and (max-width: 1280px) {
+  .nav__item {
+    border-bottom: 2px solid transparent;
+    padding: 0.5rem;
+    color: #e1e1e1;
+    transition: color 0.3s, border-bottom-color 0.3s;
+  }
+  .nav__item.active, .nav__item:hover {
+    color: #ffffff;
+    font-weight: 700;
+    border-bottom-color: #ffffff;
   }
 }
 
@@ -125,7 +149,7 @@ body {
   z-index: 1;
 }
 .hero__title {
-  color: white;
+  color: #ffffff;
   font-weight: 100;
   line-height: 2rem;
   z-index: 2;
@@ -266,7 +290,7 @@ body {
   margin-top: 1rem;
   padding-left: 1rem;
   background-color: #323232;
-  color: white;
+  color: #ffffff;
 }
 @media (min-width: 320px) and (max-width: 767px) {
   .footer {
