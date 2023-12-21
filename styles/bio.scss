@@ -8,7 +8,7 @@
   @include mobile {
     width: 100%;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     flex-direction: column;
     align-items: center;
     margin-left: 0;
@@ -33,6 +33,7 @@
   &__h2-title {
     @include mobile {
       margin: 0.5rem;
+      width: 100%;
     }
   }
   &__logo {
@@ -41,6 +42,8 @@
   }
   &__title {
     text-decoration: none;
+    display: flex;
+    justify-content: center;
     color: $primary-white;
     font-weight: 100;
     font-size: 2rem;
@@ -55,13 +58,16 @@
     margin-top: 2.5rem;
     list-style-type: none;
     @include mobile {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.7rem;
+      width: 100%;
+      padding: 0;
       margin: 0;
-      gap: 6rem;
-      padding-left: 0;
+      //make the nav_list take up the whole nav width
+      //to add wide underline when hover
+      display: grid;
+      flex-direction: row;
+      //create two columns with same width
+      grid-template-columns: repeat(2, 1fr);
+      justify-content: space-around;
     }
     @include tablet {
       display: flex;
@@ -82,16 +88,16 @@
   &__item {
     @include mobile {
       position: relative;
-      display: inline-block;
+      text-align: center;
       padding: 0.5rem;
       &::after {
         content: "";
         position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
+        left: 50%; //left side and half width
+        // transform: translateX(-50%);
         bottom: -2px;
-        width: 50%;
-        height: 10px;
+        width: 100%;
+        height: 5px;
         background: transparent;
         transition: background-color 0.3s;
       }
@@ -114,7 +120,6 @@
     }
   }
 }
-
 .hero {
   &__card {
     background-image: url(../assets/images/hero-bio.jpg);
