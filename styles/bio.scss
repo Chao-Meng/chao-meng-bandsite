@@ -356,10 +356,8 @@
     @include tablet {
       font-size: 1rem;
       line-height: 1.6rem;
-
       margin-top: 0rem;
       font-weight: 400;
-      // padding-right: 0.85rem;
       opacity: 80%;
     }
   }
@@ -371,13 +369,19 @@
   background-color: $secondary-mercury;
   &__title {
     opacity: 75%;
-    margin-left: 1rem;
-    margin-bottom: 0;
-    margin-top: 0.5rem;
-    padding-top: 1rem;
     @include mobile {
+      margin-left: 1rem;
+      margin-bottom: 0;
+      margin-top: 0.5rem;
+      padding-top: 1rem;
       font-size: 1.5rem;
       font-weight: 700;
+    }
+    @include tablet {
+      font-size: 2.5rem;
+      font-weight: 700;
+      padding-top: 3.5rem;
+      margin-top: 1.2rem;
     }
   }
   &__container {
@@ -390,6 +394,20 @@
       justify-content: space-around;
       align-items: flex-start;
       width: 100%;
+    }
+    @include tablet {
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 2rem;
+      display: flex-warp;
+      //flex-direction: column;
+      //justify-content: space-around;
+      // align-items: flex-start;
+      width: 100%;
+      padding-left: 2rem;
+      //padding-right: 1.8rem;
+      padding-bottom: 1rem;
+      margin-bottom: 0;
     }
   }
   &__item {
@@ -405,25 +423,82 @@
         object-fit: cover;
       }
     }
+    @include tablet {
+      width: 30%;
+      height: auto;
+      margin: 0rem 1rem 1rem 0rem;
+      padding: 0;
+      img {
+        // width: 15%;
+        height: 10rem;
+        //object-fit works for <img>
+        object-fit: cover;
+      }
+    }
   }
 }
 
 .footer {
-  margin-top: 1rem;
-  padding-left: 1rem;
   background-color: $primary-bandsite-black;
   color: $primary-white;
   @include mobile {
+    margin-top: 1rem;
+    padding-left: 1rem;
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
     flex-direction: column;
+  }
+  @include tablet {
+    padding-left: 2rem;
+    padding-top: 1rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  &__container {
+    @include tablet {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      width: 100%;
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+    }
+    &--below {
+      @include tablet {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        margin-left: 2rem;
+        margin-top: -0.5rem;
+      }
+    }
+    &--column {
+      @include tablet {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0.2rem;
+      }
+    }
   }
   &__title {
     @include mobile {
       font-size: 1.6rem;
       font-weight: 600;
       margin-bottom: 1rem;
+    }
+    @include tablet {
+      font-size: 2.5rem;
+      font-weight: 500;
+      width: 30%;
+      margin-right: 1rem;
     }
   }
   &__social {
@@ -438,6 +513,18 @@
         height: auto;
       }
     }
+
+    @include tablet {
+      display: flex;
+      justify-content: flex-start;
+      gap: 2.3rem;
+    }
+    &--item {
+      @include tablet {
+        width: 130%;
+        height: auto;
+      }
+    }
   }
 
   &__office {
@@ -447,12 +534,26 @@
       margin-top: 1.5rem;
       @include footer__font;
     }
+    @include tablet {
+      font-weight: 600;
+      margin-top: -0.5rem;
+
+      // @include footer__font;
+    }
   }
   &__address {
     @include mobile {
       @include footer__font;
       font-weight: 100;
       margin-bottom: 0.5rem;
+    }
+    @include tablet {
+      // @include footer__font;
+      font-weight: 100;
+      margin-bottom: -0.5rem;
+      margin-top: 0.5rem;
+      // line-height: 15px;
+      font-size: 1rem;
     }
   }
   &__email {
@@ -507,6 +608,19 @@
     @include mobile {
       margin-top: 3.2rem;
     }
+    @include tablet {
+      visibility: hidden;
+    }
+    &--tablet {
+      @include mobile {
+        visibility: hidden;
+      }
+      @include tablet {
+        margin-left: 16rem;
+        width: 8rem;
+        height: auto;
+      }
+    }
   }
   &__copyright {
     @include mobile {
@@ -514,6 +628,14 @@
       font-size: 0.7rem;
       line-height: 20px;
       font-weight: 100;
+    }
+    @include tablet {
+      margin-top: 1rem;
+      font-size: 1rem;
+      line-height: 20px;
+      font-weight: 100;
+      margin-left: 2rem;
+      margin-bottom: 3rem;
     }
   }
 }
