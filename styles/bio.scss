@@ -1,7 +1,7 @@
 //@use "./base/global.scss" as *;
 @use "./partials/mixins" as *;
 @use "./partials/variables" as *;
-
+@use "./partials/typography" as *;
 .nav {
   background-color: $primary-bandsite-black;
   padding-bottom: 0;
@@ -13,7 +13,7 @@
     align-items: center;
     margin-left: 0;
     margin-right: 0;
-    padding-top: 0;
+    padding-top: 0.5rem;
     margin-top: 0;
   }
   @include tablet {
@@ -23,7 +23,6 @@
     width: 100%;
     font-size: 2rem;
     gap: 2rem;
-    //height: 5rem;
   }
   @include desktop {
     display: flex;
@@ -50,7 +49,7 @@
       height: 1.25rem;
     }
     @include mobile {
-      width: 7.5rem;
+      width: 10.5rem;
       height: 1.25rem;
     }
   }
@@ -67,7 +66,7 @@
     }
     @include tablet {
       justify-content: flex-start;
-      font-size: 1.3rem;
+      font-size: 5.3rem;
       font-weight: 100;
     }
   }
@@ -115,7 +114,7 @@
       font-size: 0.8rem;
       font-weight: 100;
       &:hover {
-        font-weight: 700;
+        font-weight: 400;
       }
       &::after {
         content: "";
@@ -158,11 +157,14 @@
     //add a non-static position,
     //Pseudo-element relative to positioned non-static ancestor
     position: relative;
+    //width: 100%;
     @include mobile {
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      height: 11.3rem;
+      height: 12.8rem;
+      //height: auto;
+      width: 100%;
     }
     @include tablet {
       background-size: cover;
@@ -173,6 +175,7 @@
   }
   &__card::before {
     content: "";
+    height: 100%;
     position: absolute;
     top: 0;
     right: 0;
@@ -186,7 +189,7 @@
   &__title {
     @include mobile {
       color: $primary-white;
-      font-weight: 100;
+      font-weight: 400;
       line-height: 2rem;
       //Keeps the text on top of the black mask
       z-index: 2;
@@ -213,7 +216,7 @@
     }
   }
   &__title {
-    opacity: 85%;
+    opacity: 75%;
     margin-left: 1rem;
 
     @include mobile {
@@ -222,7 +225,7 @@
       padding-top: 1.5rem;
       margin-top: 0;
       font-size: 1.5rem;
-      font-weight: 700;
+      font-weight: 400;
     }
     @include tablet {
       margin-bottom: 0rem;
@@ -246,13 +249,12 @@
     @include mobile {
       width: 90%;
       height: auto;
-      margin-left: 1rem;
-      margin-right: 1rem;
+      margin: 0 auto;
       padding: 0;
-      margin-bottom: 0;
+
       img {
         width: 100%;
-        height: 15rem;
+        height: 10.2rem;
         //object-fit works for <img>
         object-fit: cover;
       }
@@ -261,8 +263,9 @@
     @include tablet {
       width: 75%;
       height: auto;
-      margin-left: 6.7rem;
-      margin-right: 6.7rem;
+      // margin-left: 6.7rem;
+      // margin-right: 6.7rem;
+      margin: 0 auto;
       padding: 0;
       margin-bottom: 0;
       img {
@@ -277,13 +280,14 @@
     @include mobile {
       @include card__saying--style;
       margin-bottom: 0;
+      opacity: 75%;
     }
     @include tablet {
       margin-left: 6.7rem;
       margin-right: 6.7rem;
       margin-top: 2.25rem;
       font-size: 1.6rem;
-      font-weight: 600;
+      font-weight: 100;
       opacity: 80%;
       line-height: 2.2rem;
       margin-bottom: 0;
@@ -314,8 +318,8 @@
     @include mobile {
       font-size: 0.85rem;
       line-height: 1.38rem;
-      font-weight: 600;
-      opacity: 80%;
+      font-weight: normal;
+      opacity: 400;
       margin-left: 1rem;
       padding-left: 0;
       margin-top: 0.5rem;
@@ -344,14 +348,14 @@
   }
   &__content--part {
     @include mobile {
-      font-size: 0.82rem;
-      line-height: 1.125rem;
+      font-size: 0.8rem;
+      line-height: 1.2rem;
       margin-left: 1rem;
       margin-right: 1rem;
       margin-top: 0rem;
-      font-weight: 400;
-      padding-right: 0.85rem;
-      opacity: 80%;
+      font-weight: 100;
+      padding-right: 0.8rem;
+      opacity: 100%;
     }
     @include tablet {
       font-size: 1rem;
@@ -400,9 +404,10 @@
       font-size: 1.5rem;
       font-weight: 700;
       line-height: 2rem;
-      display: flex-warp;
-      //flex-direction: column;
-      //justify-content: space-around;
+      display: flex;
+      flex-wrap: wrap;
+      // flex-direction: column;
+      // justify-content: space-around;
       // align-items: flex-start;
       width: 100%;
       padding-left: 2rem;
@@ -440,10 +445,11 @@
 }
 
 .footer {
+  font-family: "Prompt", sans-serif;
   background-color: $primary-bandsite-black;
   color: $primary-white;
   @include mobile {
-    margin-top: 1rem;
+    margin-top: 0.8rem;
     padding-left: 1rem;
     display: flex;
     justify-content: space-around;
@@ -459,6 +465,8 @@
     flex-direction: column;
   }
   &__container {
+    margin-bottom: 0;
+    padding-bottom: 0;
     @include tablet {
       display: flex;
       justify-content: space-between;
@@ -485,7 +493,8 @@
         align-items: center;
         width: 100%;
         margin-left: 2rem;
-        margin-top: -0.5rem;
+        //margin-top: -2.5rem;
+        padding-top: 0;
       }
     }
     &--column {
@@ -502,19 +511,21 @@
   }
   &__title {
     @include mobile {
-      font-size: 1.6rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      font-weight: normal;
+      margin-bottom: 0.5rem;
+      //padding: 1rem;
     }
     @include tablet {
       font-size: 2.3rem;
-      font-weight: 500;
+      font-weight: 400;
       width: 40%;
       margin-right: 0.8rem;
     }
   }
   &__social {
     @include mobile {
+      margin-top: 1rem;
       display: flex;
       justify-content: flex-start;
       gap: 2.3rem;
@@ -541,23 +552,22 @@
 
   &__office {
     @include mobile {
-      font-weight: 600;
-      margin-bottom: 0.2rem;
-      margin-top: 1.5rem;
       @include footer__font;
+      font-weight: 400;
+      margin-bottom: 0.2rem;
+      margin-top: -0.2rem;
+      padding: 0;
     }
     @include tablet {
       font-weight: 600;
       margin-top: -0.5rem;
-
-      // @include footer__font;
     }
   }
   &__address {
     @include mobile {
       @include footer__font;
       font-weight: 100;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
     }
     @include tablet {
       // @include footer__font;
@@ -572,7 +582,7 @@
     @include mobile {
       @include footer__font;
       margin-bottom: 0.7rem;
-      font-weight: 100;
+      font-weight: 300;
     }
     &--one {
       @include mobile {
@@ -583,7 +593,7 @@
     &--two {
       @include mobile {
         @include footer__font;
-        //argin-bottom: 1rem;
+        margin-top: 1rem;
       }
     }
   }
@@ -591,14 +601,15 @@
     @include mobile {
       @include footer__font;
       margin-bottom: 0;
-      font-weight: 600;
+      font-weight: 400;
+      margin-top: 1.2rem;
     }
     &--two {
       @include mobile {
         @include footer__font;
-        margin-top: 1rem;
+        margin-top: 1.5rem;
         margin-bottom: 0rem;
-        font-weight: 600;
+        font-weight: 400;
       }
     }
   }
@@ -637,10 +648,11 @@
   }
   &__copyright {
     @include mobile {
-      margin-top: 1rem;
+      margin-top: 0.5rem;
       font-size: 0.7rem;
       line-height: 20px;
       font-weight: 100;
+      margin-bottom: 1rem;
     }
     @include tablet {
       margin-top: 1rem;

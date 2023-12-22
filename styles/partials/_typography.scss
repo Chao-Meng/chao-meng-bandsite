@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Afacad&family=Prompt:wght@100;200;300;400;700&display=swap");
+
 @font-face {
   font-family: "Avenir Next";
   src: url("../../assets/fonts/AvenirLTProMedium.otf");
@@ -7,6 +8,12 @@
 @font-face {
   font-family: "Avenir Next";
   src: url("../../assets/fonts/AvenirNextLTPro-Regular.otf");
+
+  //
+  //   src: url("../../assets/fonts/AvenirLTProMedium.otf");
+  //   src: url("../../assets/fonts/AvenirLTProRoman.otf");
+  //   src: url("../../assets/fonts/AvenirLTProOblique.otf");
+  //   src: url("../../assets/fonts/AvenirLTProBlack.otf");
   font-weight: normal;
 }
 @font-face {
@@ -19,15 +26,3 @@
   src: url("../../assets/fonts/AvenirNextLTPro-Bold.otf");
   font-weight: 700;
 }
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Avenir Next", "Prompt", sans-serif;
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 0;
-}/*# sourceMappingURL=global.css.map */
