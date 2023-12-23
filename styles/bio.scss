@@ -179,6 +179,7 @@
     margin-top: 0rem;
     display: flex;
     align-items: center;
+
     //add a non-static position,
     //Pseudo-element relative to positioned non-static ancestor
     position: relative;
@@ -187,15 +188,18 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      height: 12.8rem;
+      //height: 12.8rem;
       //height: auto;
+      padding-top: 58%;
+
       width: 100%;
     }
     @include tablet {
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      height: 32.5rem;
+      // height: 32.5rem;
+      padding-top: 58%;
     }
   }
   &__card::before {
@@ -216,12 +220,17 @@
       color: $primary-white;
       font-weight: 400;
       line-height: 2rem;
+      position: absolute;
+      top: 32%;
       //Keeps the text on top of the black mask
       z-index: 2;
       margin-left: 1rem;
     }
     @include tablet {
       color: $primary-white;
+      position: absolute;
+      top: 38%;
+      transform: translateY(-50%);
       font-weight: 100;
       font-size: 3.75rem;
       line-height: 2rem;
@@ -431,6 +440,8 @@
       font-weight: 700;
       line-height: 2rem;
       display: flex;
+      justify-content: center;
+      margin: 0 -0.74rem;
       flex-wrap: wrap;
       // flex-direction: column;
       // justify-content: space-around;
@@ -458,7 +469,8 @@
       }
     }
     @include tablet {
-      width: 30%;
+      // width: 30%;
+      width: calc(33.33% - 1.48rem);
       height: auto;
       margin: 0rem 0.74rem 1rem 0.74rem;
       padding: 0;
