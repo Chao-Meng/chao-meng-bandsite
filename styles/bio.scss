@@ -23,6 +23,10 @@
     width: 100%;
     font-size: 2rem;
     gap: 2rem;
+    margin-top: -0.4rem;
+    margin-bottom: -0.4rem;
+    // padding-top: 0.5rem;
+    // padding-bottom: 0.5rem;
   }
   @include desktop {
     display: flex;
@@ -32,7 +36,7 @@
     font-size: 1.5rem;
   }
 
-  &__h2-title {
+  &__container {
     @include mobile {
       margin: 0.5rem;
       width: 100%;
@@ -48,9 +52,9 @@
       width: 7.5rem;
       height: 1.25rem;
     }
-    @include mobile {
-      width: 10.5rem;
-      height: 1.25rem;
+    @include tablet {
+      width: 8.5rem;
+      height: auto;
     }
   }
   &__title {
@@ -68,6 +72,7 @@
       justify-content: flex-start;
       font-size: 5.3rem;
       font-weight: 100;
+      padding-left: 2.5rem;
     }
   }
 
@@ -89,13 +94,16 @@
     }
     @include tablet {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
       align-items: center;
-      gap: 4.5rem;
+      gap: 3.5rem;
       display: flex;
       flex-direction: row;
-
-      justify-content: space-around;
+      padding-left: 4rem;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-top: 2rem;
+      padding-bottom: 0.5rem;
     }
     @include desktop {
       display: flex;
@@ -137,13 +145,30 @@
       border-bottom: 2px solid transparent;
       padding: 0.5rem;
       color: $secondary-mercury;
-      font-size: 0.8rem;
+      font-size: 1.2rem;
+      font-weight: 100;
+      padding-bottom: 2rem;
       transition: color 0.3s, border-bottom-color 0.3s;
       &.active,
       &:hover {
         color: $primary-white;
-        font-weight: 700;
+        font-weight: 400;
         border-bottom-color: $primary-white;
+      }
+      // &::after {
+      //   content: "";
+      //   position: absolute;
+      //   // left: 50%; //left side and half width
+      //   //modify the center of pseudo
+      //   transform: translateX(-50%);
+      //   bottom: -5rem;
+      //   width: 100%;
+      //   height: 10px;
+      //   background: transparent;
+      //   transition: background-color 0.3s;
+      // }
+      &:hover::after {
+        background-color: $primary-white;
       }
     }
   }
@@ -198,7 +223,7 @@
     @include tablet {
       color: $primary-white;
       font-weight: 100;
-      font-size: 4rem;
+      font-size: 3.75rem;
       line-height: 2rem;
       //Keeps the text on top of the black mask
       z-index: 2;
@@ -232,8 +257,8 @@
       padding-bottom: 2.25rem;
       padding-top: 3rem;
       margin-top: 0;
-      font-size: 2.5rem;
-      font-weight: 700;
+      font-size: 2rem;
+      font-weight: 400;
     }
     /////tablet & desktop可能一致
     @include desktop {
@@ -287,7 +312,7 @@
       margin-right: 6.7rem;
       margin-top: 2.25rem;
       font-size: 1.6rem;
-      font-weight: 100;
+      font-weight: normal;
       opacity: 80%;
       line-height: 2.2rem;
       margin-bottom: 0;
@@ -358,7 +383,7 @@
       opacity: 100%;
     }
     @include tablet {
-      font-size: 1rem;
+      font-size: 0.81rem;
       line-height: 1.6rem;
       margin-top: 0rem;
       font-weight: 400;
@@ -371,6 +396,7 @@
 }
 .album {
   background-color: $secondary-mercury;
+  width: 100%;
   &__title {
     opacity: 75%;
     @include mobile {
@@ -382,11 +408,11 @@
       font-weight: 700;
     }
     @include tablet {
-      font-size: 2.5rem;
+      font-size: 2rem;
       font-weight: 700;
       padding-top: 3.5rem;
       margin-top: 1.2rem;
-      padding-left: 2rem;
+      padding-left: 2.74rem;
     }
   }
   &__container {
@@ -414,6 +440,8 @@
       //padding-right: 1.8rem;
       padding-bottom: 1rem;
       margin-bottom: 0;
+
+      margin-right: 0;
     }
   }
   &__item {
@@ -432,7 +460,7 @@
     @include tablet {
       width: 30%;
       height: auto;
-      margin: 0rem 1rem 1rem 0rem;
+      margin: 0rem 0.74rem 1rem 0.74rem;
       padding: 0;
       img {
         // width: 15%;
@@ -467,6 +495,9 @@
   &__container {
     margin-bottom: 0;
     padding-bottom: 0;
+    @include mobile {
+      margin-bottom: -1rem;
+    }
     @include tablet {
       display: flex;
       justify-content: space-between;
@@ -474,7 +505,8 @@
       width: 100%;
       // padding-left: 2rem;
       // padding-right: 2rem;
-      margin-bottom: 1rem;
+      // margin-bottom: 1rem;
+      margin-bottom: -2rem;
       gap: 1rem;
     }
     &--left {
@@ -487,6 +519,7 @@
       }
     }
     &--below {
+      margin-top: -0.5rem;
       @include tablet {
         display: flex;
         justify-content: flex-start;
@@ -506,6 +539,7 @@
         width: 100%;
         margin-left: 0;
         margin-right: 0.2rem;
+        margin-top: 0.5rem;
       }
     }
   }
@@ -513,19 +547,23 @@
     @include mobile {
       font-size: 1.5rem;
       font-weight: normal;
+      margin-top: 1.5rem;
       margin-bottom: 0.5rem;
       //padding: 1rem;
     }
     @include tablet {
-      font-size: 2.3rem;
+      font-size: 2rem;
       font-weight: 400;
       width: 40%;
       margin-right: 0.8rem;
+      margin-top: 1.5rem;
+      padding-left: 0.5rem;
     }
   }
   &__social {
     @include mobile {
-      margin-top: 1rem;
+      margin-top: 0;
+      padding-top: 0;
       display: flex;
       justify-content: flex-start;
       gap: 2.3rem;
@@ -541,10 +579,11 @@
       display: flex;
       justify-content: flex-start;
       gap: 2.3rem;
+      padding-top: 0.5rem;
     }
     &--item {
       @include tablet {
-        width: 130%;
+        width: 110%;
         height: auto;
       }
     }
@@ -555,12 +594,12 @@
       @include footer__font;
       font-weight: 400;
       margin-bottom: 0.2rem;
-      margin-top: -0.2rem;
       padding: 0;
     }
     @include tablet {
-      font-weight: 600;
-      margin-top: -0.5rem;
+      font-weight: 400;
+      // margin-top: -0.7rem;
+      font-size: 0.82rem;
     }
   }
   &__address {
@@ -572,28 +611,47 @@
     @include tablet {
       // @include footer__font;
       font-weight: 100;
-      margin-bottom: -0.5rem;
-      margin-top: 0.5rem;
+      margin-bottom: 0rem;
+      margin-top: 0.8rem;
       // line-height: 15px;
-      font-size: 1rem;
+      font-size: 0.82rem;
     }
   }
   &__email {
     @include mobile {
       @include footer__font;
       margin-bottom: 0.7rem;
-      font-weight: 300;
+      font-weight: 100;
+    }
+    @include tablet {
+      padding-top: 0.7rem;
+      font-weight: 100;
+      font-size: 0.8rem;
     }
     &--one {
       @include mobile {
         @include footer__font;
-        margin-bottom: 0.6rem;
+        //margin-bottom: 0.6rem;
+        margin-top: 1rem;
+        font-weight: 100;
+      }
+      @include tablet {
+        @include footer__font;
+        margin-bottom: 0.7rem;
+        padding-top: 0rem;
+        font-weight: 100;
       }
     }
     &--two {
       @include mobile {
         @include footer__font;
-        margin-top: 1rem;
+        padding-top: 0rem;
+      }
+      @include tablet {
+        @include footer__font;
+        margin-bottom: 0.7rem;
+        padding-top: 0rem;
+        font-weight: 100;
       }
     }
   }
@@ -604,12 +662,26 @@
       font-weight: 400;
       margin-top: 1.2rem;
     }
+    @include tablet {
+      margin-bottom: 0;
+      font-weight: 400;
+      font-size: 0.81rem;
+      margin-top: 0.5rem;
+      padding-top: 0.2rem;
+    }
     &--two {
       @include mobile {
         @include footer__font;
         margin-top: 1.5rem;
         margin-bottom: 0rem;
         font-weight: 400;
+      }
+      @include tablet {
+        margin-bottom: 0;
+        font-weight: 400;
+        font-size: 0.81rem;
+        margin-top: 0.5rem;
+        padding-top: 0.2rem;
       }
     }
   }
@@ -618,12 +690,27 @@
       @include footer__font;
       margin-top: 1rem;
       margin-bottom: 0.5rem;
+      font-weight: 100;
+    }
+    @include tablet {
+      margin-top: 1rem;
+      padding-top: 0.6rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.82rem;
+      font-weight: 100;
     }
     &--two {
       @include mobile {
         @include footer__font;
         margin-top: 1rem;
         margin-bottom: 0.4rem;
+      }
+      @include tablet {
+        margin-top: 1rem;
+        padding-top: 0.6rem;
+        margin-bottom: 0.5rem;
+        font-size: 0.82rem;
+        font-weight: 100;
       }
     }
   }
@@ -634,15 +721,16 @@
     @include tablet {
       visibility: hidden;
     }
-    &--tablet {
+    &--widescreen {
       @include mobile {
         visibility: hidden;
       }
       @include tablet {
         padding-right: 0rem;
-        margin-right: 1rem;
-        width: 8rem;
+        margin-right: 2.2rem;
+        width: 7rem;
         height: auto;
+        padding-top: 0.5rem;
       }
     }
   }
@@ -655,12 +743,12 @@
       margin-bottom: 1rem;
     }
     @include tablet {
-      margin-top: 1rem;
-      font-size: 1rem;
+      margin-top: -0.5rem;
+      font-size: 0.82rem;
       line-height: 20px;
       font-weight: 100;
       margin-left: 2rem;
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
     }
   }
 }
