@@ -333,6 +333,11 @@
        object-fit: cover;
   }
 }
+@media (min-width: 321px) {
+  .card__img {
+    max-height: none;
+  }
+}
 @media screen and (min-width: 767px) {
   .card__img {
     width: 75%;
