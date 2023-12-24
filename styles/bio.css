@@ -50,11 +50,10 @@
 }
 @media (min-width: 1280px) {
   .nav {
-    display: flex;
-    justify-content: flex-start;
-    width: 100%;
     padding-left: 3rem;
     font-size: 1.5rem;
+    padding-top: 1.7rem;
+    padding-bottom: 1.7rem;
   }
 }
 @media (min-width: 320px) and (max-width: 767px) {
@@ -80,6 +79,12 @@
     height: auto;
   }
 }
+@media (min-width: 1280px) {
+  .nav__logo {
+    width: 12rem;
+    height: auto;
+  }
+}
 .nav__title {
   text-decoration: none;
   display: flex;
@@ -98,6 +103,14 @@
     font-size: 5.3rem;
     font-weight: 100;
     padding-left: 2.5rem;
+  }
+}
+@media (min-width: 1280px) {
+  .nav__title {
+    justify-content: flex-start;
+    font-size: 5.3rem;
+    font-weight: 100;
+    padding-left: 8rem;
   }
 }
 .nav__list {
@@ -124,7 +137,7 @@
     gap: 3.5rem;
     display: flex;
     flex-direction: row;
-    padding-left: 4rem;
+    padding-left: 3rem;
     margin-top: 0;
     margin-bottom: 0;
     padding-top: 2rem;
@@ -136,9 +149,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 4.5rem;
+    gap: 3rem;
     list-style-type: none;
     font-size: 1.2rem;
+    padding-left: 1.5rem;
   }
 }
 @media (min-width: 320px) and (max-width: 767px) {
@@ -182,8 +196,22 @@
     font-weight: 400;
     border-bottom-color: #ffffff;
   }
+}
+@media screen and (min-width: 767px) and (min-width: 1280px) {
+  .nav__item {
+    font-size: 1.4rem;
+  }
+}
+@media screen and (min-width: 767px) {
   .nav__item:hover::after {
     background-color: #ffffff;
+  }
+}
+@media screen and (min-width: 767px) {
+  .nav__item {
+    padding: 1.5rem;
+    padding-bottom: 3.7rem;
+    margin-bottom: -1.7rem;
   }
 }
 
@@ -209,6 +237,11 @@
     background-position: center;
     background-repeat: no-repeat;
     padding-top: 58%;
+  }
+}
+@media (min-width: 1280px) {
+  .hero__card {
+    padding-top: 50%;
   }
 }
 .hero__card::before {
@@ -246,7 +279,6 @@
     margin-left: 1rem;
   }
 }
-
 @media (min-width: 320px) and (max-width: 767px) {
   .card__container {
     display: flex;
@@ -291,7 +323,6 @@
 @media (min-width: 320px) and (max-width: 767px) {
   .card__img {
     width: 90%;
-    height: auto;
     margin: 0 auto;
     padding: 0;
   }
@@ -313,6 +344,17 @@
   .card__img img {
     width: 100%;
     height: 22.2rem;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+@media (min-width: 1280px) {
+  .card__img {
+    width: 65%;
+  }
+  .card__img img {
+    width: 100%;
+    height: 28.2rem;
     -o-object-fit: cover;
        object-fit: cover;
   }
@@ -343,6 +385,12 @@
     padding-right: 0;
   }
 }
+@media (min-width: 1280px) {
+  .card__saying {
+    margin-left: 14rem;
+    margin-right: 18rem;
+  }
+}
 @media (min-width: 320px) and (max-width: 767px) {
   .card__name {
     margin-left: 1rem;
@@ -369,6 +417,12 @@
     margin-top: 0.5rem;
   }
 }
+@media (min-width: 1280px) {
+  .card__name {
+    margin-left: 14rem;
+    margin-right: 18rem;
+  }
+}
 @media (min-width: 320px) and (max-width: 767px) {
   .card__subtitle {
     font-size: 0.85rem;
@@ -391,6 +445,11 @@
     padding-bottom: 0.8rem;
   }
 }
+@media (min-width: 1280px) {
+  .card__subtitle {
+    margin-left: 14rem;
+  }
+}
 @media screen and (min-width: 767px) {
   .card__content--container {
     display: flex;
@@ -399,6 +458,14 @@
     padding-left: 6.7rem;
     padding-right: 6.7rem;
     gap: 2rem;
+  }
+}
+@media (min-width: 1280px) {
+  .card__content--container {
+    margin-left: 14rem;
+    margin-right: 14rem;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 @media (min-width: 320px) and (max-width: 767px) {
@@ -420,6 +487,11 @@
     margin-top: 0rem;
     font-weight: 400;
     opacity: 80%;
+  }
+}
+@media (min-width: 1280px) {
+  .card__content--part {
+    padding-left: 1rem;
   }
 }
 
@@ -508,6 +580,19 @@
        object-fit: cover;
   }
 }
+@media (min-width: 1280px) {
+  .album__item {
+    width: calc(28% - 1.48rem);
+    height: auto;
+    margin: 0rem 0.74rem 1rem 0.74rem;
+    padding: 0;
+  }
+  .album__item img {
+    height: 10rem;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
 
 .footer {
   font-family: "Prompt", sans-serif;
@@ -553,12 +638,24 @@
     gap: 1rem;
   }
 }
+@media (min-width: 1280px) {
+  .footer__container {
+    gap: 4rem;
+    justify-content: flex-start;
+  }
+}
 @media screen and (min-width: 767px) {
   .footer__container--left {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     width: 100%;
+  }
+}
+@media (min-width: 1280px) {
+  .footer__container--left {
+    width: 88%;
+    margin-right: -10rem;
   }
 }
 .footer__container--below {
@@ -574,6 +671,11 @@
     padding-top: 0;
   }
 }
+@media (min-width: 1280px) {
+  .footer__container--below {
+    margin-left: 6rem;
+  }
+}
 @media screen and (min-width: 767px) {
   .footer__container--column {
     display: flex;
@@ -584,6 +686,11 @@
     margin-left: 0;
     margin-right: 0.2rem;
     margin-top: 0.5rem;
+  }
+}
+@media (min-width: 1280px) {
+  .footer__container--column {
+    width: calc(22% - 1.48rem);
   }
 }
 @media (min-width: 320px) and (max-width: 767px) {
@@ -602,6 +709,13 @@
     margin-right: 0.8rem;
     margin-top: 1.5rem;
     padding-left: 0.5rem;
+  }
+}
+@media (min-width: 1280px) {
+  .footer__title {
+    font-size: 2rem;
+    padding-left: 6rem;
+    margin-right: -5rem;
   }
 }
 @media (min-width: 320px) and (max-width: 767px) {
@@ -647,6 +761,11 @@
   .footer__office {
     font-weight: 400;
     font-size: 0.82rem;
+  }
+}
+@media (min-width: 1280px) {
+  .footer__office {
+    margin-top: 2.5rem;
   }
 }
 @media (min-width: 320px) and (max-width: 767px) {
@@ -818,6 +937,11 @@
     padding-top: 0.5rem;
   }
 }
+@media (min-width: 1280px) {
+  .footer__logo--widescreen {
+    margin-right: 5rem;
+  }
+}
 @media (min-width: 320px) and (max-width: 767px) {
   .footer__copyright {
     margin-top: 0.5rem;
@@ -835,5 +959,10 @@
     font-weight: 100;
     margin-left: 2rem;
     margin-bottom: 2rem;
+  }
+}
+@media (min-width: 1280px) {
+  .footer__copyright {
+    margin-top: 0.8rem;
   }
 }/*# sourceMappingURL=bio.css.map */

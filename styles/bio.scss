@@ -29,11 +29,10 @@
     // padding-bottom: 0.5rem;
   }
   @include desktop {
-    display: flex;
-    justify-content: flex-start;
-    width: 100%;
     padding-left: 3rem;
     font-size: 1.5rem;
+    padding-top: 1.7rem;
+    padding-bottom: 1.7rem;
   }
 
   &__container {
@@ -56,6 +55,10 @@
       width: 8.5rem;
       height: auto;
     }
+    @include desktop {
+      width: 12rem;
+      height: auto;
+    }
   }
   &__title {
     text-decoration: none;
@@ -73,6 +76,12 @@
       font-size: 5.3rem;
       font-weight: 100;
       padding-left: 2.5rem;
+    }
+    @include desktop {
+      justify-content: flex-start;
+      font-size: 5.3rem;
+      font-weight: 100;
+      padding-left: 8rem;
     }
   }
 
@@ -99,7 +108,7 @@
       gap: 3.5rem;
       display: flex;
       flex-direction: row;
-      padding-left: 4rem;
+      padding-left: 3rem;
       margin-top: 0;
       margin-bottom: 0;
       padding-top: 2rem;
@@ -109,9 +118,10 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 4.5rem;
+      gap: 3rem;
       list-style-type: none;
       font-size: 1.2rem;
+      padding-left: 1.5rem;
     }
   }
   &__item {
@@ -155,21 +165,18 @@
         font-weight: 400;
         border-bottom-color: $primary-white;
       }
-      // &::after {
-      //   content: "";
-      //   position: absolute;
-      //   // left: 50%; //left side and half width
-      //   //modify the center of pseudo
-      //   transform: translateX(-50%);
-      //   bottom: -5rem;
-      //   width: 100%;
-      //   height: 10px;
-      //   background: transparent;
-      //   transition: background-color 0.3s;
-      // }
+      @include desktop {
+        font-size: 1.4rem;
+      }
       &:hover::after {
         background-color: $primary-white;
       }
+    }
+    @include tablet {
+      padding: 1.5rem;
+
+      padding-bottom: 3.7rem;
+      margin-bottom: -1.7rem;
     }
   }
 }
@@ -188,10 +195,8 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      //height: 12.8rem;
-      //height: auto;
+      //Maintain the aspect ratio of the hero image regardless of the resolution
       padding-top: 58%;
-
       width: 100%;
     }
     @include tablet {
@@ -200,6 +205,9 @@
       background-repeat: no-repeat;
       // height: 32.5rem;
       padding-top: 58%;
+    }
+    @include desktop {
+      padding-top: 50%;
     }
   }
   &__card::before {
@@ -237,6 +245,10 @@
       //Keeps the text on top of the black mask
       z-index: 2;
       margin-left: 1rem;
+    }
+    @include desktop {
+      // top: 42%;
+      // font-size: 4.75rem;
     }
   }
 }
@@ -282,13 +294,18 @@
   &__img {
     @include mobile {
       width: 90%;
-      height: auto;
+      // height: 30vh;
       margin: 0 auto;
       padding: 0;
 
       img {
         width: 100%;
         height: 10.2rem;
+
+        //height: 100%;
+        //height: auto;
+        // max-height: 100%;
+        // object-fit: contain;
         //object-fit works for <img>
         object-fit: cover;
       }
@@ -305,6 +322,14 @@
       img {
         width: 100%;
         height: 22.2rem;
+        object-fit: cover;
+      }
+    }
+    @include desktop {
+      width: 65%;
+      img {
+        width: 100%;
+        height: 28.2rem;
         object-fit: cover;
       }
     }
@@ -327,6 +352,10 @@
       margin-bottom: 0;
       padding-right: 0;
     }
+    @include desktop {
+      margin-left: 14rem;
+      margin-right: 18rem;
+    }
   }
 
   &__name {
@@ -345,6 +374,10 @@
       margin-bottom: 0;
       padding-right: 0;
       margin-top: 0.5rem;
+    }
+    @include desktop {
+      margin-left: 14rem;
+      margin-right: 18rem;
     }
   }
 
@@ -367,6 +400,9 @@
       padding-top: 1.8rem;
       padding-bottom: 0.8rem;
     }
+    @include desktop {
+      margin-left: 14rem;
+    }
   }
   &__content {
     &--container {
@@ -377,6 +413,12 @@
         padding-left: 6.7rem;
         padding-right: 6.7rem;
         gap: 2rem;
+      }
+      @include desktop {
+        margin-left: 14rem;
+        margin-right: 14rem;
+        padding-left: 0;
+        padding-right: 0;
       }
     }
   }
@@ -397,6 +439,9 @@
       margin-top: 0rem;
       font-weight: 400;
       opacity: 80%;
+    }
+    @include desktop {
+      padding-left: 1rem;
     }
   }
 }
@@ -451,8 +496,10 @@
       //padding-right: 1.8rem;
       padding-bottom: 1rem;
       margin-bottom: 0;
-
       margin-right: 0;
+    }
+    @include desktop {
+      // padding-left: 8.2rem;
     }
   }
   &__item {
@@ -469,8 +516,21 @@
       }
     }
     @include tablet {
-      // width: 30%;
       width: calc(33.33% - 1.48rem);
+      height: auto;
+      margin: 0rem 0.74rem 1rem 0.74rem;
+      padding: 0;
+      img {
+        // width: 15%;
+        height: 10rem;
+        //object-fit works for <img>
+        object-fit: cover;
+      }
+    }
+    @include desktop {
+      //The width of the item is 28% of the width of its parent element
+      //and is adjusted by subtracting 1.48rem from this width
+      width: calc(28% - 1.48rem);
       height: auto;
       margin: 0rem 0.74rem 1rem 0.74rem;
       padding: 0;
@@ -521,6 +581,10 @@
       margin-bottom: -2rem;
       gap: 1rem;
     }
+    @include desktop {
+      gap: 4rem;
+      justify-content: flex-start;
+    }
     &--left {
       @include tablet {
         display: flex;
@@ -528,6 +592,10 @@
         //flex-direction: column;
         align-items: center;
         width: 100%;
+      }
+      @include desktop {
+        width: 88%;
+        margin-right: -10rem;
       }
     }
     &--below {
@@ -541,6 +609,9 @@
         //margin-top: -2.5rem;
         padding-top: 0;
       }
+      @include desktop {
+        margin-left: 6rem;
+      }
     }
     &--column {
       @include tablet {
@@ -552,6 +623,9 @@
         margin-left: 0;
         margin-right: 0.2rem;
         margin-top: 0.5rem;
+      }
+      @include desktop {
+        width: calc(22% - 1.48rem);
       }
     }
   }
@@ -570,6 +644,11 @@
       margin-right: 0.8rem;
       margin-top: 1.5rem;
       padding-left: 0.5rem;
+    }
+    @include desktop {
+      font-size: 2rem;
+      padding-left: 6rem;
+      margin-right: -5rem;
     }
   }
   &__social {
@@ -599,6 +678,8 @@
         height: auto;
       }
     }
+    @include desktop {
+    }
   }
 
   &__office {
@@ -610,8 +691,10 @@
     }
     @include tablet {
       font-weight: 400;
-      // margin-top: -0.7rem;
       font-size: 0.82rem;
+    }
+    @include desktop {
+      margin-top: 2.5rem;
     }
   }
   &__address {
@@ -744,6 +827,9 @@
         height: auto;
         padding-top: 0.5rem;
       }
+      @include desktop {
+        margin-right: 5rem;
+      }
     }
   }
   &__copyright {
@@ -761,6 +847,9 @@
       font-weight: 100;
       margin-left: 2rem;
       margin-bottom: 2rem;
+    }
+    @include desktop {
+      margin-top: 0.8rem;
     }
   }
 }
