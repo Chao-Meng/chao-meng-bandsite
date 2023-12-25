@@ -1,32 +1,26 @@
-//@use "./base/global.scss" as *;
 @use "./partials/mixins" as *;
 @use "./partials/variables" as *;
 @use "./partials/typography" as *;
 .nav {
   background-color: $primary-bandsite-black;
   padding-bottom: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
   @include mobile {
-    width: 100%;
-    display: flex;
     justify-content: center;
     flex-direction: column;
-    align-items: center;
     margin-left: 0;
     margin-right: 0;
     padding-top: 0.5rem;
     margin-top: 0;
   }
   @include tablet {
-    display: flex;
     justify-content: flex-start;
-    align-items: center;
-    width: 100%;
     font-size: 2rem;
     gap: 2rem;
     margin-top: -0.4rem;
     margin-bottom: -0.4rem;
-    // padding-top: 0.5rem;
-    // padding-bottom: 0.5rem;
   }
   @include desktop {
     padding-left: 3rem;
@@ -36,51 +30,43 @@
   }
 
   &__container {
+    margin: 0.5rem;
     @include mobile {
-      margin: 0.5rem;
       width: 100%;
-    }
-    @include tablet {
-      margin: 0.5rem;
-      // width: 100%;
     }
   }
 
   &__logo {
-    @include mobile {
-      width: 7.5rem;
-      height: 1.25rem;
-    }
+    width: 7.5rem;
+    height: 1.25rem;
+
     @include tablet {
       width: 8.5rem;
       height: auto;
     }
     @include desktop {
-      width: 12rem;
+      width: 9rem;
       height: auto;
     }
   }
+
   &__title {
     text-decoration: none;
     display: flex;
     color: $primary-white;
-    // font-weight: 100;
-    // font-size: 2rem;
+    font-weight: 100;
     @include mobile {
       justify-content: center;
       font-size: 1.3rem;
-      font-weight: 100;
     }
     @include tablet {
       justify-content: flex-start;
       font-size: 5.3rem;
-      font-weight: 100;
       padding-left: 2.5rem;
     }
     @include desktop {
       justify-content: flex-start;
       font-size: 5.3rem;
-      font-weight: 100;
       padding-left: 8rem;
     }
   }
@@ -89,6 +75,7 @@
     color: $primary-white;
     list-style-type: none;
     @include mobile {
+      //The height of the nav comes from style-guide
       margin-top: 2.5rem;
       width: 100%;
       padding: 0;
@@ -106,7 +93,6 @@
       justify-content: space-around;
       align-items: center;
       gap: 3.5rem;
-      display: flex;
       flex-direction: row;
       padding-left: 3rem;
       margin-top: 0;
@@ -115,15 +101,14 @@
       padding-bottom: 0.5rem;
     }
     @include desktop {
-      display: flex;
       justify-content: space-between;
-      align-items: center;
       gap: 3rem;
       list-style-type: none;
       font-size: 1.2rem;
       padding-left: 1.5rem;
     }
   }
+
   &__item {
     @include mobile {
       position: relative;
@@ -133,6 +118,7 @@
       font-weight: 100;
       &:hover {
         font-weight: 400;
+        cursor: pointer;
       }
       &::after {
         content: "";
@@ -152,10 +138,10 @@
     }
 
     @include tablet {
-      border-bottom: 2px solid transparent;
+      border-bottom: 4px solid transparent;
       padding: 0.5rem;
       color: $secondary-mercury;
-      font-size: 1.2rem;
+      font-size: 1rem;
       font-weight: 100;
       padding-bottom: 2rem;
       transition: color 0.3s, border-bottom-color 0.3s;
@@ -164,22 +150,17 @@
         color: $primary-white;
         font-weight: 400;
         border-bottom-color: $primary-white;
+        cursor: pointer;
       }
       @include desktop {
-        font-size: 1.4rem;
+        font-size: 1rem;
+        margin-top: -1.2rem;
+        margin-bottom: -1.7rem;
       }
-      &:hover::after {
-        background-color: $primary-white;
-      }
-    }
-    @include tablet {
-      padding: 1.5rem;
-
-      padding-bottom: 3.7rem;
-      margin-bottom: -1.7rem;
     }
   }
 }
+
 .hero {
   &__card {
     background-image: url(../assets/images/hero-bio.jpg);
@@ -189,25 +170,18 @@
     //add a non-static position,
     //Pseudo-element relative to positioned non-static ancestor
     position: relative;
-    @include mobile {
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      /*Because it is uncertain whether the height of the HERO image should change 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /*Because it is uncertain whether the height of the HERO image should change 
       with the resolution, this design is designed using the HERO image height change.
       Maintain the aspect ratio of the hero image regardless of the resolution*/
-      padding-top: 58%;
-      width: 100%;
-    }
+    padding-top: 52%;
     @include tablet {
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      // height: 32.5rem;
-      padding-top: 58%;
+      padding-top: 49%;
     }
     @include desktop {
-      padding-top: 50%;
+      padding-top: 47%;
     }
   }
   &__card::before {
@@ -224,59 +198,43 @@
   }
 
   &__title {
-    @include mobile {
-      color: $primary-white;
-      font-weight: 400;
-      line-height: 2rem;
-      position: absolute;
-      top: 32%;
-      //Keeps the text on top of the black mask
-      z-index: 2;
-      margin-left: 1rem;
-    }
+    position: absolute;
+    font-weight: normal;
+    color: $primary-white;
+    line-height: 2rem;
+    //Keeps the text on top of the black mask
+    z-index: 2;
+    top: 32%;
+    margin-left: 1rem;
     @include tablet {
       color: $primary-white;
-      position: absolute;
       top: 38%;
       transform: translateY(-50%);
-      font-weight: 100;
-      font-size: 3.75rem;
-      line-height: 2rem;
-      //Keeps the text on top of the black mask
-      z-index: 2;
-      margin-left: 1rem;
+      font-size: 3.25rem;
+      margin-left: 2rem;
     }
     @include desktop {
-      // top: 42%;
-      // font-size: 4.75rem;
+      margin-left: 6rem;
     }
   }
 }
 
 .card {
-  width: 100%;
-
   &__container {
-    // @include mobile {
     display: flex;
     justify-content: flex-start;
-    align-items: center;
     flex-direction: column;
     width: 100%;
-    // }
   }
   &__title {
     opacity: 75%;
     margin-left: 1rem;
-
-    @include mobile {
-      margin-bottom: 0rem;
-      padding-bottom: 1rem;
-      padding-top: 1.5rem;
-      margin-top: 0;
-      font-size: 1.5rem;
-      font-weight: 400;
-    }
+    margin-bottom: 0rem;
+    padding-bottom: 1rem;
+    padding-top: 1.5rem;
+    margin-top: 0;
+    font-size: 1.5rem;
+    font-weight: 400;
     @include tablet {
       margin-bottom: 0rem;
       padding-bottom: 2.25rem;
@@ -284,44 +242,40 @@
       margin-top: 0;
       font-size: 2rem;
       font-weight: 400;
+      margin-left: 2rem;
     }
-    /////tablet & desktop可能一致
     @include desktop {
       margin-bottom: 0rem;
       padding-bottom: 2.25rem;
       padding-top: 3rem;
       margin-top: 0;
       font-size: 2.5rem;
-      font-weight: 700;
+      font-weight: 400;
+      margin-left: 6rem;
     }
   }
 
   &__img {
-    // @include mobile {
     width: 90%;
     margin: auto;
     padding: 0;
     img {
       width: 100%;
       //The height of the photo is compressed and the photo regains an aspect ratio
-      aspect-ratio: 20 / 9.5;
+      aspect-ratio: 18 / 9.5;
       //object-fit works for <img>
       object-fit: cover;
       max-height: none;
     }
-    //  }
-
     @include tablet {
       width: 75%;
       height: auto;
-
       margin: 0 auto;
       padding: 0;
       margin-bottom: 0;
-
       img {
         width: 100%;
-        aspect-ratio: 48/22.2;
+        aspect-ratio: 41/22.2;
         object-fit: cover;
       }
     }
@@ -329,128 +283,114 @@
       width: 65%;
       img {
         width: 100%;
-        aspect-ratio:: 80/28.2;
+        aspect-ratio: 52/28.2;
         object-fit: cover;
       }
     }
   }
 
-  // &__saying {
-  //   @include mobile {
-  //     @include card__saying--style;
-  //     margin-bottom: 0;
-  //     opacity: 75%;
-  //   }
-  //   @include tablet {
-  //     margin-left: 6.7rem;
-  //     margin-right: 6.7rem;
-  //     margin-top: 2.25rem;
-  //     font-size: 1.6rem;
-  //     font-weight: normal;
-  //     opacity: 80%;
-  //     line-height: 2.2rem;
-  //     margin-bottom: 0;
-  //     padding-right: 0;
-  //   }
-  //   @include desktop {
-  //     margin-left: 14rem;
-  //     margin-right: 18rem;
-  //   }
-  // }
+  &__saying {
+    @include card__saying--style;
+    margin-bottom: 0;
+    @include tablet {
+      margin-left: 6.7rem;
+      margin-right: 6.7rem;
+      margin-top: 2.25rem;
+      font-size: 1.3rem;
+      font-weight: normal;
+      line-height: 2.2rem;
+      margin-bottom: 0;
+      padding-right: 0;
+    }
+    @include desktop {
+      margin-left: 14rem;
+      margin-right: 18rem;
+    }
+  }
 
-  // &__name {
-  //   @include mobile {
-  //     @include card__saying--style;
-  //     margin-top: 0.5rem;
-  //   }
-  //   @include tablet {
-  //     margin-left: 6.7rem;
-  //     margin-right: 6.7rem;
-  //     margin-top: 1rem;
-  //     font-size: 1.2rem;
-  //     font-weight: 600;
-  //     opacity: 80%;
-  //     line-height: 2.2rem;
-  //     margin-bottom: 0;
-  //     padding-right: 0;
-  //     margin-top: 0.5rem;
-  //   }
-  //   @include desktop {
-  //     margin-left: 14rem;
-  //     margin-right: 18rem;
-  //   }
-  // }
+  &__name {
+    font-weight: normal;
+    @include card__saying--style;
+    margin-top: 0.5rem;
+    @include tablet {
+      margin-left: 6.7rem;
+      margin-right: 6.7rem;
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      line-height: 2.2rem;
+      margin-bottom: 0;
+      padding-right: 0;
+      margin-top: 0.5rem;
+    }
+    @include desktop {
+      margin-left: 14rem;
+      margin-right: 18rem;
+    }
+  }
 
-  // &__subtitle {
-  //   @include mobile {
-  //     font-size: 0.85rem;
-  //     line-height: 1.38rem;
-  //     font-weight: normal;
-  //     opacity: 400;
-  //     margin-left: 1rem;
-  //     padding-left: 0;
-  //     margin-top: 0.5rem;
-  //   }
-  //   @include tablet {
-  //     font-size: 1.7rem;
-  //     line-height: 1.38rem;
-  //     font-weight: 600;
-  //     margin-left: 6.7rem;
-  //     padding-left: 0;
-  //     padding-top: 1.8rem;
-  //     padding-bottom: 0.8rem;
-  //   }
-  //   @include desktop {
-  //     margin-left: 14rem;
-  //   }
-  // }
-  // &__content {
-  //   &--container {
-  //     @include tablet {
-  //       display: flex;
-  //       justify-content: space-evenly;
-  //       align-items: center;
-  //       padding-left: 6.7rem;
-  //       padding-right: 6.7rem;
-  //       gap: 2rem;
-  //     }
-  //     @include desktop {
-  //       margin-left: 14rem;
-  //       margin-right: 14rem;
-  //       padding-left: 0;
-  //       padding-right: 0;
-  //     }
-  //   }
-  // }
-  // &__content--part {
-  //   @include mobile {
-  //     font-size: 0.8rem;
-  //     line-height: 1.2rem;
-  //     margin-left: 1rem;
-  //     margin-right: 1rem;
-  //     margin-top: 0rem;
-  //     font-weight: 100;
-  //     padding-right: 0.8rem;
-  //     opacity: 100%;
-  //   }
-  //   @include tablet {
-  //     font-size: 0.81rem;
-  //     line-height: 1.6rem;
-  //     margin-top: 0rem;
-  //     font-weight: 400;
-  //     opacity: 80%;
-  //   }
-  //   @include desktop {
-  //     //padding-left: 1rem;
-  //     padding-right: 0.5rem;
-  //   }
-  // }
+  &__subtitle {
+    font-weight: normal;
+    font-size: 0.85rem;
+    line-height: 1.38rem;
+    margin-left: 1rem;
+    padding-left: 0;
+    margin-top: 0.5rem;
+    @include tablet {
+      font-size: 1.7rem;
+      line-height: 1.38rem;
+      margin-left: 6.7rem;
+      padding-left: 0;
+      padding-top: 1.8rem;
+      padding-bottom: 0.8rem;
+    }
+    @include desktop {
+      margin-left: 14rem;
+    }
+  }
+  &__content {
+    &--container {
+      @include tablet {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding-left: 6.7rem;
+        padding-right: 6.7rem;
+        gap: 2rem;
+      }
+      @include desktop {
+        margin-left: 14rem;
+        margin-right: 14rem;
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+  &__content--part {
+    margin-top: 0rem;
+    font-weight: 100;
+    @include mobile {
+      font-size: 0.8rem;
+      line-height: 1.2rem;
+      margin-left: 1rem;
+      margin-right: 1rem;
+      padding-right: 0.8rem;
+    }
+    @include tablet {
+      font-size: 0.81rem;
+      line-height: 1.6rem;
+    }
+    @include desktop {
+      padding-right: 0.5rem;
+    }
+  }
 }
+
 .quote__italic {
   font-style: italic;
 }
+
 .album {
-  background-color: $secondary-mercury;
+  background-color: $secondary-alabaster;
   width: 100%;
   &__title {
     opacity: 75%;
@@ -460,45 +400,46 @@
       margin-top: 0.5rem;
       padding-top: 1rem;
       font-size: 1.5rem;
-      font-weight: 700;
+      font-weight: 400;
     }
     @include tablet {
       font-size: 2rem;
-      font-weight: 700;
+      font-weight: 400;
       padding-top: 3.5rem;
       margin-top: 1.2rem;
       padding-left: 2.74rem;
     }
+    @include desktop {
+      margin-left: 6rem;
+      font-weight: 400;
+    }
   }
+
   &__container {
+    display: flex;
+    width: 100%;
     @include mobile {
       font-size: 1.5rem;
       font-weight: 700;
       line-height: 2rem;
-      display: flex;
       flex-direction: column;
       justify-content: space-around;
       align-items: flex-start;
-      width: 100%;
     }
     @include tablet {
       font-size: 1.5rem;
       font-weight: 700;
       line-height: 2rem;
-      display: flex;
       justify-content: center;
       margin: 0 -0.74rem;
       flex-wrap: wrap;
-      width: 100%;
       padding-left: 2rem;
       padding-bottom: 1rem;
       margin-bottom: 0;
       margin-right: 0;
     }
-    @include desktop {
-      // padding-left: 8.2rem;
-    }
   }
+
   &__item {
     @include mobile {
       width: 90%;
@@ -508,7 +449,6 @@
       img {
         width: 100%;
         height: 10rem;
-        //object-fit works for <img>
         object-fit: cover;
       }
     }
@@ -518,9 +458,7 @@
       margin: 0rem 0.74rem 1rem 0.74rem;
       padding: 0;
       img {
-        // width: 15%;
         height: 10rem;
-        //object-fit works for <img>
         object-fit: cover;
       }
     }
@@ -532,9 +470,7 @@
       margin: 0rem 0.74rem 1rem 0.74rem;
       padding: 0;
       img {
-        // width: 15%;
         height: 10rem;
-        //object-fit works for <img>
         object-fit: cover;
       }
     }
@@ -545,22 +481,19 @@
   font-family: "Prompt", sans-serif;
   background-color: $primary-bandsite-black;
   color: $primary-white;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-direction: column;
   @include mobile {
     margin-top: 0.8rem;
     padding-left: 1rem;
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    flex-direction: column;
   }
   @include tablet {
     padding-left: 2rem;
     padding-top: 1rem;
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    flex-direction: column;
   }
+
   &__container {
     margin-bottom: 0;
     padding-bottom: 0;
@@ -572,9 +505,6 @@
       justify-content: space-between;
       align-items: center;
       width: 100%;
-      // padding-left: 2rem;
-      // padding-right: 2rem;
-      // margin-bottom: 1rem;
       margin-bottom: -2rem;
       gap: 1rem;
     }
@@ -586,7 +516,6 @@
       @include tablet {
         display: flex;
         justify-content: flex-start;
-        //flex-direction: column;
         align-items: center;
         width: 100%;
       }
@@ -595,6 +524,7 @@
         margin-right: -10rem;
       }
     }
+
     &--below {
       margin-top: -0.5rem;
       @include tablet {
@@ -603,13 +533,13 @@
         align-items: center;
         width: 100%;
         margin-left: 2rem;
-        //margin-top: -2.5rem;
         padding-top: 0;
       }
       @include desktop {
         margin-left: 6rem;
       }
     }
+
     &--column {
       @include tablet {
         display: flex;
@@ -626,13 +556,13 @@
       }
     }
   }
+
   &__title {
     @include mobile {
       font-size: 1.5rem;
       font-weight: normal;
       margin-top: 1.5rem;
       margin-bottom: 0.5rem;
-      //padding: 1rem;
     }
     @include tablet {
       font-size: 2rem;
@@ -648,6 +578,7 @@
       margin-right: -5rem;
     }
   }
+
   &__social {
     @include mobile {
       margin-top: 0;
@@ -656,13 +587,13 @@
       justify-content: flex-start;
       gap: 2.3rem;
     }
+
     &--item {
       @include mobile {
         width: 110%;
         height: auto;
       }
     }
-
     @include tablet {
       display: flex;
       justify-content: flex-start;
@@ -685,6 +616,7 @@
       font-weight: 400;
       margin-bottom: 0.2rem;
       padding: 0;
+      margin-top: 0.9rem;
     }
     @include tablet {
       font-weight: 400;
@@ -694,44 +626,42 @@
       margin-top: 2.5rem;
     }
   }
+
   &__address {
     @include mobile {
       @include footer__font;
       font-weight: 100;
       margin-bottom: 1rem;
+      margin-top: 1rem;
     }
     @include tablet {
-      // @include footer__font;
       font-weight: 100;
       margin-bottom: 0rem;
       margin-top: 0.8rem;
-      // line-height: 15px;
       font-size: 0.82rem;
     }
   }
+
   &__email {
+    font-weight: 100;
     @include mobile {
       @include footer__font;
       margin-bottom: 0.7rem;
-      font-weight: 100;
     }
     @include tablet {
       padding-top: 0.7rem;
-      font-weight: 100;
       font-size: 0.8rem;
     }
     &--one {
       @include mobile {
-        @include footer__font;
-        //margin-bottom: 0.6rem;
-        margin-top: 1rem;
         font-weight: 100;
+        @include footer__font;
+        margin-top: 1rem;
       }
       @include tablet {
         @include footer__font;
         margin-bottom: 0.7rem;
         padding-top: 0rem;
-        font-weight: 100;
       }
     }
     &--two {
@@ -743,16 +673,16 @@
         @include footer__font;
         margin-bottom: 0.7rem;
         padding-top: 0rem;
-        font-weight: 100;
       }
     }
   }
+
   &__group {
     @include mobile {
       @include footer__font;
       margin-bottom: 0;
       font-weight: 400;
-      margin-top: 1.2rem;
+      margin-top: 1.7rem;
     }
     @include tablet {
       margin-bottom: 0;
@@ -777,12 +707,12 @@
       }
     }
   }
+
   &__agent {
     @include mobile {
       @include footer__font;
       margin-top: 1rem;
       margin-bottom: 0.5rem;
-      font-weight: 100;
     }
     @include tablet {
       margin-top: 1rem;
@@ -806,6 +736,7 @@
       }
     }
   }
+
   &__logo {
     @include mobile {
       margin-top: 3.2rem;
@@ -813,6 +744,7 @@
     @include tablet {
       visibility: hidden;
     }
+
     &--widescreen {
       @include mobile {
         visibility: hidden;
@@ -829,14 +761,13 @@
       }
     }
   }
+
   &__copyright {
-    @include mobile {
-      margin-top: 0.5rem;
-      font-size: 0.7rem;
-      line-height: 20px;
-      font-weight: 100;
-      margin-bottom: 1rem;
-    }
+    margin-top: 0.5rem;
+    font-size: 0.7rem;
+    line-height: 20px;
+    font-weight: 100;
+    margin-bottom: 1rem;
     @include tablet {
       margin-top: -0.5rem;
       font-size: 0.82rem;
@@ -847,6 +778,7 @@
     }
     @include desktop {
       margin-top: 0.8rem;
+      margin-left: 6rem;
     }
   }
 }
