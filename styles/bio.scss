@@ -782,3 +782,104 @@
     }
   }
 }
+
+//sprint-2
+.comment {
+  &__title {
+    background-color: $secondary-alabaster;
+    width: 100%;
+    opacity: 85%;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+    @include tablet {
+      font-size: 2rem;
+      font-weight: 400;
+      padding-top: 3.5rem;
+      margin-top: 1.2rem;
+      padding-left: 2.74rem;
+    }
+    @include desktop {
+      margin-left: 6rem;
+      font-weight: 400;
+    }
+  }
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    &--right {
+      width: 100%;
+      display: flex;
+      gap: 4px;
+      flex-direction: column;
+      margin-right: 1rem;
+    }
+  }
+  &__pic {
+    margin-left: 1rem;
+    margin-top: 1rem;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    background-color: $secondary-mercury;
+  }
+  &__label {
+    font-size: 10px;
+    opacity: 40%;
+    font-weight: 400;
+    line-height: 20px;
+  }
+  &__name {
+    height: 35px;
+    border-radius: 4px;
+    border-color: $secondary-mercury;
+    border-width: 1px;
+    background-color: $secondary-alabaster;
+    margin-bottom: 1rem;
+    &::placeholder {
+      color: $secondary-bandsite-darkblack;
+      font-family: "Avenir Next";
+      font-weight: 100;
+      padding-top: 3%;
+    }
+    &:focus {
+      outline: none; //remove the browser's defult outline style
+      border: 1px solid $secondary-bandsite-darkblack !important;
+    }
+  }
+  &__comments {
+    border-radius: 4px;
+    border-color: $secondary-mercury;
+    border-width: 1px;
+    background-color: $secondary-alabaster;
+    margin-bottom: 1rem;
+    &:focus {
+      outline: none; //remove the browser's defult outline style
+      border: 1px solid $secondary-bandsite-darkblack !important;
+    }
+    &::placeholder {
+      color: $secondary-bandsite-darkblack;
+      font-family: "Avenir Next";
+      font-weight: 100;
+      padding-top: 0.5rem;
+    }
+  }
+  &__button {
+    background-color: $primary-bandsite-black;
+    color: $primary-white;
+    padding: 0.6rem;
+    font-weight: 400; //700 looks too wide, different with mockup
+    font-size: 1rem;
+    border-radius: 4px;
+  }
+
+  &__divider {
+    height: 1px;
+    background-color: $secondary-mercury;
+    margin-top: 1rem;
+  }
+}
