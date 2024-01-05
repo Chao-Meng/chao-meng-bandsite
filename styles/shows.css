@@ -1,1 +1,68 @@
-/*# sourceMappingURL=shows.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Afacad&family=Prompt:wght@100;200;300;400;700&display=swap");
+@font-face {
+  font-family: "Avenir Next";
+  src: url("../../assets/fonts/AvenirLTProMedium.otf");
+  font-weight: 100;
+}
+@font-face {
+  font-family: "Avenir Next";
+  src: url("../../assets/fonts/AvenirNextLTPro-Regular.otf");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Avenir Next";
+  src: url("../../assets/fonts/AvenirNextLTPro-Demi.otf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Avenir Next";
+  src: url("../../assets/fonts/AvenirNextLTPro-Bold.otf");
+  font-weight: 700;
+}
+.hero__card {
+  background-image: url(../assets/images/hero-shows.jpg);
+  margin-top: 0rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /*Because it is uncertain whether the height of the HERO image should change 
+      with the resolution, this design is designed using the HERO image height change.
+      Maintain the aspect ratio of the hero image regardless of the resolution*/
+  padding-top: 52%;
+}
+@media screen and (min-width: 767px) {
+  .hero__card {
+    padding-top: 49%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .hero__card {
+    padding-top: 47%;
+  }
+}
+.hero__title {
+  position: absolute;
+  font-weight: normal;
+  color: #ffffff;
+  line-height: 2rem;
+  z-index: 2;
+  top: 32%;
+  margin-left: 1rem;
+}
+@media screen and (min-width: 767px) {
+  .hero__title {
+    color: #ffffff;
+    top: 38%;
+    transform: translateY(-50%);
+    font-size: 3.25rem;
+    margin-left: 2rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .hero__title {
+    margin-left: 6rem;
+  }
+}/*# sourceMappingURL=shows.css.map */

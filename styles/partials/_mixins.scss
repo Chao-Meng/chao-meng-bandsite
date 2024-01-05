@@ -28,6 +28,11 @@
   line-height: 1.38rem;
 }
 
+@mixin comment__body {
+  opacity: 80%;
+  font-size: 0.8rem;
+  font-weight: normal;
+}
 @mixin footer__font {
   font-size: 0.81rem;
   line-height: 18px;
