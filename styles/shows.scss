@@ -21,7 +21,7 @@
       padding-top: 38%;
     }
     @include desktop {
-      padding-top: 40%;
+      padding-top: 49%;
     }
   }
   &__card::before {
@@ -48,6 +48,15 @@
       margin-bottom: 4rem;
       margin-left: 2.5rem;
     }
+    @include desktop {
+      width: 29%;
+      height: 8rem;
+      margin-bottom: 6.5rem;
+      margin-left: 4rem;
+      top: 40%;
+      right: 10%;
+      position: absolute;
+    }
   }
   &__subtitle {
     display: block;
@@ -62,6 +71,10 @@
       font-size: 1.5rem;
       margin-left: 2rem;
     }
+    @include desktop {
+      margin-left: 8rem;
+      top: 28%;
+    }
   }
   &__title {
     position: absolute;
@@ -72,34 +85,45 @@
     z-index: 2;
     top: 18%;
     margin-left: 1rem;
+    //The value depends on the demand
+    //If the resolution becomes large and the text needs to be merged into one line, use 70%
+    width: 14rem;
     @include tablet {
       color: $primary-white;
       top: 27%;
+      width: 33.6rem;
       transform: translateY(-50%);
       font-size: 3.7rem;
       margin-left: 2rem;
       line-height: 4rem;
     }
     @include desktop {
-      margin-left: 6rem;
-    }
-    span {
-      display: block;
+      margin-left: 8rem;
+      top: 43%;
+      width: 30rem;
     }
   }
 }
 
 .card {
+  @include desktop {
+    display: flex;
+    justify-content: space-between;
+  }
   &__container {
     margin-top: 1.5rem;
+    @include desktop {
+      margin-right: 6rem;
+      width: 64%;
+    }
     &--small {
       display: flex;
       flex-direction: column;
-      align-items: center;
       @include tablet {
         flex-direction: row;
         gap: 1rem;
         margin-left: 2.3rem;
+        align-items: center;
       }
     }
     &--date,
@@ -118,10 +142,14 @@
   &__title {
     @include h2__style;
     margin-bottom: -1.4rem;
+    opacity: 80%;
     @include tablet {
       font-size: 2.2rem;
       padding-left: 1.5rem;
       margin-top: 3.5rem;
+    }
+    @include desktop {
+      margin-left: 7rem;
     }
   }
 
@@ -130,8 +158,15 @@
     margin-bottom: 0.65rem;
     font-size: 0.81rem;
     font-weight: 100;
+    opacity: 80%;
     @include tablet {
       font-size: 0.88rem;
+    }
+    &--bold {
+      font-weight: normal;
+      opacity: 80%;
+      @include tablet {
+      }
     }
   }
 

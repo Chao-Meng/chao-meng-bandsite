@@ -40,7 +40,7 @@
 }
 @media screen and (min-width: 1280px) {
   .hero__card {
-    padding-top: 40%;
+    padding-top: 49%;
   }
 }
 .hero__card::before {
@@ -69,6 +69,17 @@
     margin-left: 2.5rem;
   }
 }
+@media screen and (min-width: 1280px) {
+  .hero__music {
+    width: 29%;
+    height: 8rem;
+    margin-bottom: 6.5rem;
+    margin-left: 4rem;
+    top: 40%;
+    right: 10%;
+    position: absolute;
+  }
+}
 .hero__subtitle {
   display: block;
   position: absolute;
@@ -85,6 +96,12 @@
     margin-left: 2rem;
   }
 }
+@media screen and (min-width: 1280px) {
+  .hero__subtitle {
+    margin-left: 8rem;
+    top: 28%;
+  }
+}
 .hero__title {
   position: absolute;
   font-weight: normal;
@@ -93,11 +110,13 @@
   z-index: 2;
   top: 18%;
   margin-left: 1rem;
+  width: 14rem;
 }
 @media screen and (min-width: 767px) {
   .hero__title {
     color: #ffffff;
     top: 27%;
+    width: 33.6rem;
     transform: translateY(-50%);
     font-size: 3.7rem;
     margin-left: 2rem;
@@ -106,26 +125,37 @@
 }
 @media screen and (min-width: 1280px) {
   .hero__title {
-    margin-left: 6rem;
+    margin-left: 8rem;
+    top: 43%;
+    width: 30rem;
   }
 }
-.hero__title span {
-  display: block;
-}
 
+@media screen and (min-width: 1280px) {
+  .card {
+    display: flex;
+    justify-content: space-between;
+  }
+}
 .card__container {
   margin-top: 1.5rem;
+}
+@media screen and (min-width: 1280px) {
+  .card__container {
+    margin-right: 6rem;
+    width: 64%;
+  }
 }
 .card__container--small {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 @media screen and (min-width: 767px) {
   .card__container--small {
     flex-direction: row;
     gap: 1rem;
     margin-left: 2.3rem;
+    align-items: center;
   }
 }
 .card__container--date, .card__container--venue, .card__container--location {
@@ -140,7 +170,6 @@
   }
 }
 .card__title {
-  background-color: #fafafa;
   opacity: 85%;
   margin-left: 1rem;
   margin-bottom: 1rem;
@@ -148,6 +177,7 @@
   font-size: 1.5rem;
   font-weight: 400;
   margin-bottom: -1.4rem;
+  opacity: 80%;
 }
 @media screen and (min-width: 767px) {
   .card__title {
@@ -156,16 +186,26 @@
     margin-top: 3.5rem;
   }
 }
+@media screen and (min-width: 1280px) {
+  .card__title {
+    margin-left: 7rem;
+  }
+}
 .card__p {
   margin-top: 0.2rem;
   margin-bottom: 0.65rem;
   font-size: 0.81rem;
   font-weight: 100;
+  opacity: 80%;
 }
 @media screen and (min-width: 767px) {
   .card__p {
     font-size: 0.88rem;
   }
+}
+.card__p--bold {
+  font-weight: normal;
+  opacity: 80%;
 }
 .card__content {
   display: flex;

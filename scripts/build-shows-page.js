@@ -57,7 +57,9 @@ function addCard(cardDate, cardVenue, cardLocation) {
 
   const dateLabel = createLabel("card__date", "DATE");
   dateContainer.appendChild(dateLabel);
-  const dateInfo = createP();
+  //const dateInfo = createP();
+  const dateInfo = document.createElement("p");
+  dateInfo.classList.add("card__p--bold");
   dateInfo.textContent = cardDate;
   dateContainer.appendChild(dateInfo);
 
