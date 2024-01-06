@@ -22,12 +22,13 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+  box-sizing: content-box;
 }
 
 body {
   font-family: "Avenir Next";
   margin: 0;
+  overflow-x: hidden;
 }
 
 .nav {

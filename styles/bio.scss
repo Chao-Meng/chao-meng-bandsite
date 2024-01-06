@@ -873,6 +873,8 @@
   }
   &__button {
     @include button__style;
+    padding-right: 1rem;
+    width: 95%;
   }
 
   &__divider {

@@ -40,7 +40,7 @@
 }
 @mixin h2__style {
   background-color: $secondary-alabaster;
-  width: 100%;
+  //width: 100%;
   opacity: 85%;
   margin-left: 1rem;
   margin-bottom: 1rem;
@@ -63,6 +63,7 @@
   border-radius: 4px;
   width: 100%;
   margin: 0 auto;
+  margin-right: 0;
 }
 
 @mixin divider__style {
