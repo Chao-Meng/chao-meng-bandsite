@@ -500,6 +500,7 @@
   font-weight: 400;
   font-size: 1rem;
   border-radius: 4px;
+  width: 100%;
 }
 .comment__divider {
   height: 1px;

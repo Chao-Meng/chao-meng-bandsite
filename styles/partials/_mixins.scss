@@ -38,3 +38,12 @@
   line-height: 18px;
   font-weight: 100;
 }
+@mixin button__style {
+  background-color: $primary-bandsite-black;
+  color: $primary-white;
+  padding: 0.6rem;
+  font-weight: 400; //700 looks too wide, different with mockup
+  font-size: 1rem;
+  border-radius: 4px;
+  width: 100%;
+}

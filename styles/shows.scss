@@ -16,7 +16,7 @@
     /*Because it is uncertain whether the height of the HERO image should change 
         with the resolution, this design is designed using the HERO image height change.
         Maintain the aspect ratio of the hero image regardless of the resolution*/
-    padding-top: 52%;
+    padding-top: 45%;
     @include tablet {
       padding-top: 49%;
     }
@@ -24,19 +24,35 @@
       padding-top: 47%;
     }
   }
-  //   &__card::before {
-  //     content: "";
-  //     height: 100%;
-  //     position: absolute;
-  //     top: 0;
-  //     right: 0;
-  //     bottom: 0;
-  //     left: 0;
-  //     //Black mask with 50% opacity
-  //     background-color: rgba(50, 50, 50, 0.5);
-  //     z-index: 1;
-  //   }
-
+  &__card::before {
+    content: "";
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    //Black mask with 50% opacity
+    background-color: rgba(50, 50, 50, 0.5);
+    z-index: 1;
+  }
+  &__music {
+    width: 90%;
+    margin: auto;
+    height: 6rem;
+    margin-bottom: 2rem;
+    z-index: 1;
+  }
+  &__subtitle {
+    display: block;
+    position: absolute;
+    top: 7%;
+    margin-left: 1rem;
+    color: $primary-white;
+    font-size: 0.9rem;
+    font-weight: 100;
+    z-index: 2;
+  }
   &__title {
     position: absolute;
     font-weight: normal;
@@ -44,7 +60,7 @@
     line-height: 2rem;
     //Keeps the text on top of the black mask
     z-index: 2;
-    top: 32%;
+    top: 18%;
     margin-left: 1rem;
     @include tablet {
       color: $primary-white;
@@ -56,5 +72,27 @@
     @include desktop {
       margin-left: 6rem;
     }
+    span {
+      display: block;
+    }
+  }
+}
+
+.card {
+  &__divider {
+    height: 1px;
+    width: 100%;
+    margin: auto;
+    background-color: $secondary-mercury;
+    margin-top: 1rem;
+  }
+  &__button {
+    background-color: $primary-bandsite-black;
+    color: $primary-white;
+    padding: 0.6rem;
+    font-weight: 400; //700 looks too wide, different with mockup
+    font-size: 1rem;
+    border-radius: 4px;
+    width: 100%;
   }
 }

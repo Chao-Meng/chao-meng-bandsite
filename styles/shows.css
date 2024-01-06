@@ -31,7 +31,7 @@
   /*Because it is uncertain whether the height of the HERO image should change 
       with the resolution, this design is designed using the HERO image height change.
       Maintain the aspect ratio of the hero image regardless of the resolution*/
-  padding-top: 52%;
+  padding-top: 45%;
 }
 @media screen and (min-width: 767px) {
   .hero__card {
@@ -43,13 +43,41 @@
     padding-top: 47%;
   }
 }
+.hero__card::before {
+  content: "";
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(50, 50, 50, 0.5);
+  z-index: 1;
+}
+.hero__music {
+  width: 90%;
+  margin: auto;
+  height: 6rem;
+  margin-bottom: 2rem;
+  z-index: 1;
+}
+.hero__subtitle {
+  display: block;
+  position: absolute;
+  top: 7%;
+  margin-left: 1rem;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 100;
+  z-index: 2;
+}
 .hero__title {
   position: absolute;
   font-weight: normal;
   color: #ffffff;
   line-height: 2rem;
   z-index: 2;
-  top: 32%;
+  top: 18%;
   margin-left: 1rem;
 }
 @media screen and (min-width: 767px) {
@@ -65,4 +93,24 @@
   .hero__title {
     margin-left: 6rem;
   }
+}
+.hero__title span {
+  display: block;
+}
+
+.card__divider {
+  height: 1px;
+  width: 100%;
+  margin: auto;
+  background-color: #e1e1e1;
+  margin-top: 1rem;
+}
+.card__button {
+  background-color: #323232;
+  color: #ffffff;
+  padding: 0.6rem;
+  font-weight: 400;
+  font-size: 1rem;
+  border-radius: 4px;
+  width: 100%;
 }/*# sourceMappingURL=shows.css.map */

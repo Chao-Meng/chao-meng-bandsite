@@ -1,20 +1,24 @@
 // sprint-2
+
+function createDiv(className) {
+  let divName = document.createElement("div");
+  divName.classList.add(className);
+  return divName;
+}
+
 let comment = document.getElementById("comment");
 let title = document.createElement("h2");
 title.textContent = "Join the Conversation";
 title.classList.add("comment__title");
 
 //parent div of pic and form to use flexbox
-let parentDiv = document.createElement("div");
-parentDiv.classList.add("comment__container");
+let parentDiv = createDiv("comment__container");
 
 //child div for pic
-let leftDiv = document.createElement("div");
-leftDiv.classList.add("comment__container--left");
+let leftDiv = createDiv("comment__container--left");
 
 //child div for form
-let rightDiv = document.createElement("div");
-rightDiv.classList.add("comment__container--right");
+let rightDiv = createDiv("comment__container--right");
 
 //create pic in left div
 let pic = document.createElement("img");
@@ -26,13 +30,26 @@ let formName = document.createElement("label");
 formName.textContent = "NAME";
 formName.classList.add("comment__label");
 
+function createInput(text, name, className, placeholder) {
+  let inputName = document.createElement("input");
+  inputName.type = text;
+  inputName.id = name;
+  inputName.className = className;
+  inputName.placeholder = placeholder;
+  return inputName;
+}
 //create the input form
-let nameInput = document.createElement("textarea");
-nameInput.setAttribute("type", "text");
-nameInput.setAttribute("id", "name");
-nameInput.setAttribute("class", "comment__name");
-nameInput.setAttribute("placeholder", " Enter your Name");
-
+// let nameInput = document.createElement("input");
+// nameInput.type = "text";
+// nameInput.id = "name";
+// nameInput.className = "comment__name";
+// nameInput.placeholder = " Enter your Name";
+let nameInput = createInput(
+  "text",
+  "name",
+  "comment__name",
+  " Enter your Name"
+);
 //create the title for comment input form
 let commentName = document.createElement("label");
 commentName.textContent = "COMMENT";
@@ -62,6 +79,7 @@ rightDiv.appendChild(nameInput);
 rightDiv.appendChild(commentName);
 rightDiv.appendChild(commentInput);
 rightDiv.appendChild(commentButton);
+
 function createDivider() {
   let divider = document.createElement("div");
   divider.classList.add("comment__divider");
@@ -69,9 +87,6 @@ function createDivider() {
 }
 
 let divider = createDivider();
-//document.createElement("div");
-// divider.textContent = "";
-// divider.classList.add("comment__divider");
 comment.appendChild(divider);
 
 //create a new div to store default comments and new comments
