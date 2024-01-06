@@ -38,12 +38,6 @@ function createInput(text, name, className, placeholder) {
   inputName.placeholder = placeholder;
   return inputName;
 }
-//create the input form
-// let nameInput = document.createElement("input");
-// nameInput.type = "text";
-// nameInput.id = "name";
-// nameInput.className = "comment__name";
-// nameInput.placeholder = " Enter your Name";
 let nameInput = createInput(
   "text",
   "name",

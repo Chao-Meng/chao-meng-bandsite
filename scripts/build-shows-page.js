@@ -7,14 +7,23 @@ function createDiv(className) {
 }
 
 const card = document.getElementById("card");
+card.classList.add("card");
 const title = document.createElement("h2");
 title.textContent = "Shows";
 title.classList.add("card__title");
 card.appendChild(title);
 
-//parent div for date, venue, location, button and divider
+//parent div for date, venue, location, button and divider, tablet and desktop version
 const parentDiv = createDiv("card__container");
 card.appendChild(parentDiv);
+const cardLabelTablet = createDiv("card__label--tablet");
+parentDiv.appendChild(cardLabelTablet);
+const dateLabel = createLabel("card__date--tablet", "DATE");
+cardLabelTablet.appendChild(dateLabel);
+const venueLabel = createLabel("card__venue--tablet", "VENUE");
+cardLabelTablet.appendChild(venueLabel);
+const locationLabel = createLabel("card__location--tablet", "LOCATION");
+cardLabelTablet.appendChild(locationLabel);
 
 function createLabel(className, text) {
   const label = document.createElement("label");
@@ -36,11 +45,11 @@ function createP() {
   return pInfo;
 }
 function addCard(cardDate, cardVenue, cardLocation) {
-  const cardContent = createDiv("comment__content");
+  const cardContent = createDiv("card__content");
   parentDiv.appendChild(cardContent);
 
   //child div for date, venue, location
-  const smallDiv = createDiv("comment__container--small");
+  const smallDiv = createDiv("card__container--small");
   cardContent.appendChild(smallDiv);
 
   const dateContainer = createDiv("card__container--date");
@@ -62,7 +71,7 @@ function addCard(cardDate, cardVenue, cardLocation) {
 
   const locationContainer = createDiv("card__container--location");
   smallDiv.appendChild(locationContainer);
-  const locationLabel = createLabel("card__lacation", "LOCATION");
+  const locationLabel = createLabel("card__location", "LOCATION");
   locationContainer.appendChild(locationLabel);
   const locationInfo = createP();
   locationInfo.textContent = cardLocation;
@@ -72,7 +81,7 @@ function addCard(cardDate, cardVenue, cardLocation) {
   btn.classList.add("card__button");
 
   btn.textContent = "BUY TICKETS";
-  cardContent.appendChild(btn);
+  smallDiv.appendChild(btn);
 
   const divider = createDivider();
   cardContent.appendChild(divider);

@@ -79,20 +79,80 @@
 }
 
 .card {
+  &__container {
+    margin-top: 1.5rem;
+    &--small {
+      display: flex;
+      flex-direction: column;
+      margin-left: 1rem;
+      align-items: flex-start;
+      @include tablet {
+        flex-direction: row;
+        gap: 2rem;
+        margin-left: 2.3rem;
+      }
+    }
+    &--date {
+      @include tablet {
+        width: 25%;
+      }
+      &--venue,
+      &--location {
+      @include tablet {
+        width: 25%;
+      }
+    }
+  }
+  &__title {
+    @include h2__style;
+    margin-bottom: -1.4rem;
+  }
+  &__p {
+    margin-top: 0.2rem;
+    margin-bottom: 0.65rem;
+    font-size: 0.81rem;
+    font-weight: 100;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+    }
+  }
+  &__date,
+  &__venue,
+  &__location {
+    @include label__style;
+    @include tablet {
+      visibility: hidden;
+    }
+    &--tablet {
+      @include label__style;
+      font-size: 0.75rem;
+    }
+  }
+  &__label {
+    &--tablet {
+      @include mobile {
+        visibility: hidden;
+      }
+      display: flex;
+      justify-content: flex-start;
+      gap: 9rem;
+      margin-left: 2.3rem;
+    }
+  }
   &__divider {
-    height: 1px;
-    width: 100%;
-    margin: auto;
-    background-color: $secondary-mercury;
-    margin-top: 1rem;
+    @include divider__style;
   }
   &__button {
-    background-color: $primary-bandsite-black;
-    color: $primary-white;
-    padding: 0.6rem;
-    font-weight: 400; //700 looks too wide, different with mockup
-    font-size: 1rem;
-    border-radius: 4px;
-    width: 100%;
+    @include button__style;
+    width: 90%;
+    margin-top: 0.5rem;
+    @include tablet {
+      width: 20%;
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
   }
 }

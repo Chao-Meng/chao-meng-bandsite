@@ -179,7 +179,7 @@ body {
   align-items: flex-start;
   flex-direction: column;
   @include mobile {
-    margin-top: 0.8rem;
+    //margin-top: 0.8rem;
     padding-left: 1rem;
   }
   @include tablet {
