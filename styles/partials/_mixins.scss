@@ -63,7 +63,9 @@
   width: 100%;
   margin: 0 auto;
 }
-
+@mixin button__hover {
+  cursor: pointer;
+}
 @mixin divider__style {
   height: 1px;
   width: 100%;

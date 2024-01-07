@@ -7,15 +7,10 @@
     margin-top: 0rem;
     display: flex;
     align-items: center;
-    //add a non-static position,
-    //Pseudo-element relative to positioned non-static ancestor
     position: relative;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    /*Because it is uncertain whether the height of the HERO image should change 
-        with the resolution, this design is designed using the HERO image height change.
-        Maintain the aspect ratio of the hero image regardless of the resolution*/
     padding-top: 45%;
     @include tablet {
       padding-top: 38%;
@@ -24,6 +19,7 @@
       padding-top: 49%;
     }
   }
+
   &__card::before {
     content: "";
     height: 100%;
@@ -36,6 +32,7 @@
     background-color: rgba(50, 50, 50, 0.5);
     z-index: 1;
   }
+
   &__music {
     width: 90%;
     margin: auto;
@@ -58,6 +55,7 @@
       position: absolute;
     }
   }
+
   &__subtitle {
     display: block;
     position: absolute;
@@ -76,6 +74,7 @@
       top: 28%;
     }
   }
+
   &__title {
     position: absolute;
     font-weight: normal;
@@ -126,7 +125,7 @@
         align-items: center;
       }
       &:hover {
-        cursor: pointer;
+        @include button__hover;
       }
     }
     &--date,
@@ -168,16 +167,12 @@
     &--bold {
       font-weight: normal;
       opacity: 80%;
-      @include tablet {
-      }
     }
   }
 
   &__content {
     display: flex;
     flex-direction: column;
-    @include tablet {
-    }
   }
 
   &__date,
@@ -230,7 +225,7 @@
       margin-right: 1rem;
     }
     &:hover {
-      cursor: pointer;
+      @include button__hover;
     }
   }
 }

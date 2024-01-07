@@ -28,9 +28,6 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  /*Because it is uncertain whether the height of the HERO image should change 
-      with the resolution, this design is designed using the HERO image height change.
-      Maintain the aspect ratio of the hero image regardless of the resolution*/
   padding-top: 45%;
 }
 @media screen and (min-width: 767px) {

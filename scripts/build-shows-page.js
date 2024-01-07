@@ -1,5 +1,4 @@
 // sprint-2
-
 function createDiv(className) {
   let divName = document.createElement("div");
   divName.classList.add(className);
@@ -7,15 +6,19 @@ function createDiv(className) {
 }
 
 const card = document.getElementById("card");
-card.classList.add("card");
+const myForm = document.createElement("form");
+myForm.classList.add("card");
+card.appendChild(myForm);
+myForm.action = "submit";
+
 const title = document.createElement("h2");
 title.textContent = "Shows";
 title.classList.add("card__title");
-card.appendChild(title);
+myForm.appendChild(title);
 
 //parent div for date, venue, location, button and divider, tablet and desktop version
 const parentDiv = createDiv("card__container");
-card.appendChild(parentDiv);
+myForm.appendChild(parentDiv);
 const cardLabelTablet = createDiv("card__label--tablet");
 parentDiv.appendChild(cardLabelTablet);
 const dateLabel = createLabel("card__date--tablet", "DATE");
@@ -57,7 +60,6 @@ function addCard(cardDate, cardVenue, cardLocation) {
 
   const dateLabel = createLabel("card__date", "DATE");
   dateContainer.appendChild(dateLabel);
-  //const dateInfo = createP();
   const dateInfo = document.createElement("p");
   dateInfo.classList.add("card__p--bold");
   dateInfo.textContent = cardDate;
