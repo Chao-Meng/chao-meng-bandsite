@@ -165,13 +165,3 @@ document.getElementById("home").addEventListener("click", function () {
 document.getElementById("shows").addEventListener("click", function () {
   window.location.href = "../pages/shows.html";
 });
-
-//const smallDivs = document.querySelectorAll(".card__container--small");
-// smallDivs.forEach((div) => {
-//smallDiv.addEventListener("click", function () {
-//     // smallDivs.forEach((innerDiv) => {
-//     //   innerDiv.style.backgroundColor = "";
-//     // });
-////smallDiv.style.backgroundColor = "red";
-//   });
-//});

@@ -141,13 +141,12 @@ body {
         width: 100%;
         height: 5px;
         background: transparent;
-        transition: background-color s;
+        transition: background-color 0.3s;
       }
       &:hover::after {
         background-color: $primary-white;
       }
     }
-
     @include tablet {
       border-bottom: 4px solid transparent;
       padding: 0.5rem;

@@ -176,7 +176,7 @@ body {
     width: 100%;
     height: 5px;
     background: transparent;
-    transition: background-color s;
+    transition: background-color 0.3s;
   }
   .nav__item:hover::after {
     background-color: #ffffff;
