@@ -1,5 +1,4 @@
 // sprint-2
-
 function createDiv(className) {
   let divName = document.createElement("div");
   divName.classList.add(className);
@@ -15,13 +14,10 @@ title.classList.add("comment__title");
 //parent div of pic and form to use flexbox
 let parentDiv = createDiv("comment__container");
 
-//child div for pic
 let leftDiv = createDiv("comment__container--left");
 
-//child div for form
 let rightDiv = createDiv("comment__container--right");
 
-//create pic in left div
 let pic = document.createElement("img");
 pic.src = "../assets/images/Mohan-muruge.jpg";
 pic.classList.add("comment__pic");
@@ -39,17 +35,19 @@ function createInput(text, name, className, placeholder) {
   inputName.placeholder = placeholder;
   return inputName;
 }
+
 let nameInput = createInput(
   "text",
   "name",
   "comment__name",
   " Enter your Name"
 );
+
 //create the title for comment input form
 let commentName = document.createElement("label");
 commentName.textContent = "COMMENT";
 commentName.classList.add("comment__label");
-//nameInput.required = true;
+
 //create the comment form
 let commentInput = document.createElement("textarea");
 commentInput.setAttribute("type", "text");
@@ -163,6 +161,7 @@ let defaultComments = [
 function compareDates(a, b) {
   return new Date(a.date).getTime() - new Date(b.date).getTime();
 }
+
 //sort the default comments in ascending time
 defaultComments.sort(compareDates);
 
@@ -188,6 +187,8 @@ comment.addEventListener("submit", function (event) {
   month = month < 10 ? `0${month}` : month;
   day = day < 10 ? `0${day}` : day;
   let newDate = `${month}/${day}/${year}`;
+
+  //check the input name status
   if (nameInput.value.trim() === "") {
     nameInput.classList.remove("comment__name");
     nameInput.classList.add("comment__name--invalid");
@@ -199,4 +200,13 @@ comment.addEventListener("submit", function (event) {
     }
   }
   comment.reset();
+});
+
+//listen click the nav menu action
+document.getElementById("shows").addEventListener("click", function () {
+  window.location.href = "../pages/shows.html";
+});
+
+document.getElementById("home").addEventListener("click", function () {
+  window.location.href = "../index.html";
 });

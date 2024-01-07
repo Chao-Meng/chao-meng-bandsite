@@ -177,7 +177,6 @@
   font-size: 1.5rem;
   font-weight: 400;
   margin-bottom: -1.4rem;
-  opacity: 80%;
 }
 @media screen and (min-width: 767px) {
   .card__title {

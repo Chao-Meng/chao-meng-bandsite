@@ -130,3 +130,12 @@ window.onload = function () {
     addCard(card.date, card.venue, card.location);
   });
 };
+
+//listen click the nav menu action
+document.getElementById("home").addEventListener("click", function () {
+  window.location.href = "../index.html";
+});
+
+document.getElementById("shows").addEventListener("click", function () {
+  const showsActive = document.getElementById("shows");
+});

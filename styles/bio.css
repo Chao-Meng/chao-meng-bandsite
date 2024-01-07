@@ -398,12 +398,6 @@
 }
 @media screen and (min-width: 1280px) {
   .comment__title {
-    margin-left: 6rem;
-    font-weight: 400;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .comment__title {
     font-size: 2.5rem;
     margin-left: 8rem;
     margin-top: 0.2rem;
