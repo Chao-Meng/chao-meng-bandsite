@@ -117,15 +117,20 @@
     &--small {
       display: flex;
       flex-direction: column;
+      padding-left: 1rem;
       @include tablet {
         flex-direction: row;
         gap: 1rem;
-        margin-left: 2.3rem;
+        padding-left: 2.3rem;
         align-items: center;
       }
-      &:hover {
-        @include button__hover;
-      }
+    }
+    &--hovered {
+      @include button__hover;
+      background-color: $secondary-alabaster;
+    }
+    &--backgroundColor {
+      background-color: $secondary-mercury;
     }
     &--date,
     &--venue,

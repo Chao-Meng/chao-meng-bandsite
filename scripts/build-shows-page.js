@@ -55,6 +55,32 @@ function addCard(cardDate, cardVenue, cardLocation) {
   const smallDiv = createDiv("card__container--small");
   cardContent.appendChild(smallDiv);
 
+  const smallDivs = document.querySelectorAll(".card__container--small");
+  //listen click a item
+  smallDivs.forEach((div) => {
+    div.addEventListener("click", function () {
+      smallDivs.forEach((innerDiv) => {
+        innerDiv.classList.remove("card__container--backgroundColor");
+      });
+      div.classList.add("card__container--backgroundColor");
+    });
+  });
+  //listen hover(mouseenter) a item
+  smallDivs.forEach((div) => {
+    div.addEventListener("mouseenter", function () {
+      smallDivs.forEach((innerDiv) => {
+        innerDiv.classList.remove("card__container--hovered");
+      });
+      div.classList.add("card__container--hovered");
+    });
+  });
+  //listen mouseleave a item
+  smallDivs.forEach((div) => {
+    div.addEventListener("mouseleave", function () {
+      innerDiv.classList.remove("card__container--hovered");
+    });
+  });
+
   const dateContainer = createDiv("card__container--date");
   smallDiv.appendChild(dateContainer);
 
@@ -139,3 +165,13 @@ document.getElementById("home").addEventListener("click", function () {
 document.getElementById("shows").addEventListener("click", function () {
   window.location.href = "../pages/shows.html";
 });
+
+//const smallDivs = document.querySelectorAll(".card__container--small");
+// smallDivs.forEach((div) => {
+//smallDiv.addEventListener("click", function () {
+//     // smallDivs.forEach((innerDiv) => {
+//     //   innerDiv.style.backgroundColor = "";
+//     // });
+////smallDiv.style.backgroundColor = "red";
+//   });
+//});

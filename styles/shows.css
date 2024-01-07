@@ -146,17 +146,22 @@
 .card__container--small {
   display: flex;
   flex-direction: column;
+  padding-left: 1rem;
 }
 @media screen and (min-width: 767px) {
   .card__container--small {
     flex-direction: row;
     gap: 1rem;
-    margin-left: 2.3rem;
+    padding-left: 2.3rem;
     align-items: center;
   }
 }
-.card__container--small:hover {
+.card__container--hovered {
   cursor: pointer;
+  background-color: #fafafa;
+}
+.card__container--backgroundColor {
+  background-color: #e1e1e1;
 }
 .card__container--date, .card__container--venue, .card__container--location {
   margin-left: 1.1rem;
