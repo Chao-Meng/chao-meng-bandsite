@@ -125,6 +125,9 @@
         margin-left: 2.3rem;
         align-items: center;
       }
+      &:hover {
+        cursor: pointer;
+      }
     }
     &--date,
     &--venue,
@@ -225,6 +228,9 @@
       width: 20%;
       margin-left: 1rem;
       margin-right: 1rem;
+    }
+    &:hover {
+      cursor: pointer;
     }
   }
 }

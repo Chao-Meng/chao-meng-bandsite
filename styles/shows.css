@@ -158,6 +158,9 @@
     align-items: center;
   }
 }
+.card__container--small:hover {
+  cursor: pointer;
+}
 .card__container--date, .card__container--venue, .card__container--location {
   margin-left: 1.1rem;
 }
@@ -278,4 +281,7 @@
     margin-left: 1rem;
     margin-right: 1rem;
   }
+}
+.card__button:hover {
+  cursor: pointer;
 }/*# sourceMappingURL=shows.css.map */

@@ -258,7 +258,7 @@
 
   &__container {
     display: flex;
-    width: 100%;
+    //width: 100%;
     @include mobile {
       font-size: 1.5rem;
       font-weight: 700;
@@ -274,7 +274,7 @@
       justify-content: center;
       margin: 0 -0.74rem;
       flex-wrap: wrap;
-      padding-left: 2rem;
+      margin-left: 1rem;
       padding-bottom: 1rem;
       margin-bottom: 0;
       margin-right: 0;
@@ -318,334 +318,25 @@
   }
 }
 
-// .footer {
-//   font-family: "Prompt", sans-serif;
-//   background-color: $primary-bandsite-black;
-//   color: $primary-white;
-//   display: flex;
-//   justify-content: space-around;
-//   align-items: flex-start;
-//   flex-direction: column;
-//   @include mobile {
-//     margin-top: 0.8rem;
-//     padding-left: 1rem;
-//   }
-//   @include tablet {
-//     padding-left: 2rem;
-//     padding-top: 1rem;
-//   }
-
-//   &__container {
-//     margin-bottom: 0;
-//     padding-bottom: 0;
-//     @include mobile {
-//       margin-bottom: -1rem;
-//     }
-//     @include tablet {
-//       display: flex;
-//       justify-content: space-between;
-//       align-items: center;
-//       width: 100%;
-//       margin-bottom: -2rem;
-//       gap: 1rem;
-//     }
-//     @include desktop {
-//       gap: 4rem;
-//       justify-content: flex-start;
-//     }
-//     &--left {
-//       @include tablet {
-//         display: flex;
-//         justify-content: flex-start;
-//         align-items: center;
-//         width: 100%;
-//       }
-//       @include desktop {
-//         width: 88%;
-//         margin-right: -10rem;
-//       }
-//     }
-
-//     &--below {
-//       margin-top: -0.5rem;
-//       @include tablet {
-//         display: flex;
-//         justify-content: flex-start;
-//         align-items: center;
-//         width: 100%;
-//         margin-left: 2rem;
-//         padding-top: 0;
-//       }
-//       @include desktop {
-//         margin-left: 6rem;
-//       }
-//     }
-
-//     &--column {
-//       @include tablet {
-//         display: flex;
-//         flex-direction: column;
-//         justify-content: flex-start;
-//         align-items: flex-start;
-//         width: 100%;
-//         margin-left: 0;
-//         margin-right: 0.2rem;
-//         margin-top: 0.5rem;
-//       }
-//       @include desktop {
-//         width: calc(22% - 1.48rem);
-//       }
-//     }
-//   }
-
-//   &__title {
-//     @include mobile {
-//       font-size: 1.5rem;
-//       font-weight: normal;
-//       margin-top: 1.5rem;
-//       margin-bottom: 0.5rem;
-//     }
-//     @include tablet {
-//       font-size: 2rem;
-//       font-weight: 400;
-//       width: 40%;
-//       margin-right: 0.8rem;
-//       margin-top: 1.5rem;
-//       padding-left: 0.5rem;
-//     }
-//     @include desktop {
-//       font-size: 2rem;
-//       padding-left: 6rem;
-//       margin-right: -5rem;
-//     }
-//   }
-
-//   &__social {
-//     @include mobile {
-//       margin-top: 0;
-//       padding-top: 0;
-//       display: flex;
-//       justify-content: flex-start;
-//       gap: 2.3rem;
-//     }
-
-//     &--item {
-//       @include mobile {
-//         width: 110%;
-//         height: auto;
-//       }
-//     }
-//     @include tablet {
-//       display: flex;
-//       justify-content: flex-start;
-//       gap: 2.3rem;
-//       padding-top: 0.5rem;
-//     }
-//     &--item {
-//       @include tablet {
-//         width: 110%;
-//         height: auto;
-//       }
-//     }
-//     @include desktop {
-//     }
-//   }
-
-//   &__office {
-//     @include mobile {
-//       @include footer__font;
-//       font-weight: 400;
-//       margin-bottom: 0.2rem;
-//       padding: 0;
-//       margin-top: 0.9rem;
-//     }
-//     @include tablet {
-//       font-weight: 400;
-//       font-size: 0.82rem;
-//     }
-//     @include desktop {
-//       margin-top: 2.5rem;
-//     }
-//   }
-
-//   &__address {
-//     @include mobile {
-//       @include footer__font;
-//       font-weight: 100;
-//       margin-bottom: 1rem;
-//       margin-top: 1rem;
-//     }
-//     @include tablet {
-//       font-weight: 100;
-//       margin-bottom: 0rem;
-//       margin-top: 0.8rem;
-//       font-size: 0.82rem;
-//     }
-//   }
-
-//   &__email {
-//     font-weight: 100;
-//     @include mobile {
-//       @include footer__font;
-//       margin-bottom: 0.7rem;
-//     }
-//     @include tablet {
-//       padding-top: 0.7rem;
-//       font-size: 0.8rem;
-//     }
-//     &--one {
-//       @include mobile {
-//         font-weight: 100;
-//         @include footer__font;
-//         margin-top: 1rem;
-//       }
-//       @include tablet {
-//         @include footer__font;
-//         margin-bottom: 0.7rem;
-//         padding-top: 0rem;
-//       }
-//     }
-//     &--two {
-//       @include mobile {
-//         @include footer__font;
-//         padding-top: 0rem;
-//       }
-//       @include tablet {
-//         @include footer__font;
-//         margin-bottom: 0.7rem;
-//         padding-top: 0rem;
-//       }
-//     }
-//   }
-
-//   &__group {
-//     @include mobile {
-//       @include footer__font;
-//       margin-bottom: 0;
-//       font-weight: 400;
-//       margin-top: 1.7rem;
-//     }
-//     @include tablet {
-//       margin-bottom: 0;
-//       font-weight: 400;
-//       font-size: 0.81rem;
-//       margin-top: 0.5rem;
-//       padding-top: 0.2rem;
-//     }
-//     &--two {
-//       @include mobile {
-//         @include footer__font;
-//         margin-top: 1.5rem;
-//         margin-bottom: 0rem;
-//         font-weight: 400;
-//       }
-//       @include tablet {
-//         margin-bottom: 0;
-//         font-weight: 400;
-//         font-size: 0.81rem;
-//         margin-top: 0.5rem;
-//         padding-top: 0.2rem;
-//       }
-//     }
-//   }
-
-//   &__agent {
-//     @include mobile {
-//       @include footer__font;
-//       margin-top: 1rem;
-//       margin-bottom: 0.5rem;
-//     }
-//     @include tablet {
-//       margin-top: 1rem;
-//       padding-top: 0.6rem;
-//       margin-bottom: 0.5rem;
-//       font-size: 0.82rem;
-//       font-weight: 100;
-//     }
-//     &--two {
-//       @include mobile {
-//         @include footer__font;
-//         margin-top: 1rem;
-//         margin-bottom: 0.4rem;
-//       }
-//       @include tablet {
-//         margin-top: 1rem;
-//         padding-top: 0.6rem;
-//         margin-bottom: 0.5rem;
-//         font-size: 0.82rem;
-//         font-weight: 100;
-//       }
-//     }
-//   }
-
-//   &__logo {
-//     @include mobile {
-//       margin-top: 3.2rem;
-//     }
-//     @include tablet {
-//       visibility: hidden;
-//     }
-
-//     &--widescreen {
-//       @include mobile {
-//         visibility: hidden;
-//       }
-//       @include tablet {
-//         padding-right: 0rem;
-//         margin-right: 2.2rem;
-//         width: 7rem;
-//         height: auto;
-//         padding-top: 0.5rem;
-//       }
-//       @include desktop {
-//         margin-right: 5rem;
-//       }
-//     }
-//   }
-
-//   &__copyright {
-//     margin-top: 0.5rem;
-//     font-size: 0.7rem;
-//     line-height: 20px;
-//     font-weight: 100;
-//     margin-bottom: 1rem;
-//     @include tablet {
-//       margin-top: -0.5rem;
-//       font-size: 0.82rem;
-//       line-height: 20px;
-//       font-weight: 100;
-//       margin-left: 2rem;
-//       margin-bottom: 2rem;
-//     }
-//     @include desktop {
-//       margin-top: 0.8rem;
-//       margin-left: 6rem;
-//     }
-//   }
-// }
-
 //sprint-2
 .comment {
   &__title {
     @include h2__style;
-    // background-color: $secondary-alabaster;
-    // width: 100%;
-    // opacity: 85%;
-    // margin-left: 1rem;
-    // margin-bottom: 1rem;
-    // margin-top: 1.5rem;
-    // font-size: 1.5rem;
-    // font-weight: 400;
     @include tablet {
       font-size: 2rem;
       font-weight: 400;
       padding-top: 3.5rem;
-      margin-top: 1.2rem;
-      padding-left: 2.74rem;
+      margin-top: 0.2rem;
+      padding-left: 2rem;
     }
     @include desktop {
       margin-left: 6rem;
       font-weight: 400;
+    }
+    @include desktop {
+      font-size: 2.5rem;
+      margin-left: 8rem;
+      margin-top: 0.2rem;
     }
   }
   &__container {
@@ -653,18 +344,47 @@
     justify-content: space-between;
     align-items: flex-start;
     gap: 1rem;
+    @include tablet {
+      margin-left: 5rem;
+      gap: 0;
+    }
+    @include desktop {
+      justify-content: space-evenly;
+      // margin-left: 24rem;
+      // margin-right: 16rem;
+      width: 47%;
+      margin: auto;
+      gap: 0;
+    }
     &--right {
       width: 100%;
       display: flex;
-      // gap: 4px;
       flex-direction: column;
       margin-right: 1rem;
+      @include tablet {
+        width: 75%;
+        margin-right: 6rem;
+      }
+      @include desktop {
+        //margin: auto;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+      }
     }
     &--up {
       display: flex;
       justify-content: space-between;
       margin-top: 1.5rem;
       margin-bottom: 1.5rem;
+      @include tablet {
+        margin-bottom: 0.5rem;
+      }
+    }
+    &--big {
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
   &__pic {
@@ -674,17 +394,22 @@
     width: 36px;
     height: 36px;
     background-color: $secondary-mercury;
+    @include tablet {
+      width: 48px;
+      height: 48px;
+    }
+    @include desktop {
+      margin-right: -1.5rem;
+    }
   }
   &__label {
     @include label__style;
+    @include tablet {
+      font-size: 0.75rem;
+    }
   }
   &__name {
-    height: 35px;
-    border-radius: 4px;
-    border-color: $secondary-mercury;
-    border-width: 1px;
-    background-color: $secondary-alabaster;
-    margin-bottom: 1rem;
+    @include name__input;
     &::placeholder {
       color: $secondary-bandsite-darkblack;
       font-family: "Avenir Next";
@@ -693,6 +418,13 @@
     &:focus {
       outline: none; //remove the browser's default outline style
       border: 1px solid $secondary-bandsite-darkblack !important;
+    }
+    &--invalid {
+      @include name__input;
+      border: 1px solid red;
+    }
+    @include tablet {
+      height: 2.9rem;
     }
   }
   &__comments {
@@ -716,10 +448,25 @@
     @include button__style;
     padding-right: 1rem;
     width: 95%;
+    @include tablet {
+      width: 25%;
+      align-self: end;
+      margin: 0.6rem 0 0.6rem 0;
+    }
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &__divider {
     @include divider__style;
+    @include tablet {
+      margin-bottom: 0;
+      margin-top: 1.5rem;
+    }
+    @include desktop {
+      width: 40%;
+    }
   }
   &__author {
     @include comment__body;
@@ -731,5 +478,10 @@
   }
   &__content {
     @include comment__body;
+    @include tablet {
+      line-height: 1.5rem;
+      font-size: 0.85rem;
+      font-weight: 100;
+    }
   }
 }

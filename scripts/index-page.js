@@ -7,6 +7,7 @@ function createDiv(className) {
 }
 
 let comment = document.getElementById("comment");
+comment.classList.add("comment");
 let title = document.createElement("h2");
 title.textContent = "Join the Conversation";
 title.classList.add("comment__title");
@@ -48,7 +49,7 @@ let nameInput = createInput(
 let commentName = document.createElement("label");
 commentName.textContent = "COMMENT";
 commentName.classList.add("comment__label");
-
+//nameInput.required = true;
 //create the comment form
 let commentInput = document.createElement("textarea");
 commentInput.setAttribute("type", "text");
@@ -122,8 +123,8 @@ function addComment(commentName, commentDate, commentContent) {
   commentText.textContent = commentContent;
 
   //put the new comments on the top
-  commentList.appendChild(commentConBig);
-  commentConBig.prepend(commentContainer);
+  commentList.prepend(commentConBig);
+  commentConBig.appendChild(commentContainer);
   comment.appendChild(commentList);
   commentContainer.appendChild(commentConLeft);
 
@@ -171,10 +172,10 @@ window.onload = function () {
     addComment(comment.name, comment.date, comment.content);
   });
 };
-
 //listen click the comment button event
 let button = document.querySelector(".comment__button");
-button.addEventListener("click", function () {
+comment.addEventListener("submit", function (event) {
+  event.preventDefault();
   //pass the input comment value
   let newCommentText = commentInput.value;
   let newName = nameInput.value;
@@ -187,8 +188,15 @@ button.addEventListener("click", function () {
   month = month < 10 ? `0${month}` : month;
   day = day < 10 ? `0${day}` : day;
   let newDate = `${month}/${day}/${year}`;
-
-  if (newCommentText) {
-    addComment(newName, newDate, newCommentText);
+  if (nameInput.value.trim() === "") {
+    nameInput.classList.remove("comment__name");
+    nameInput.classList.add("comment__name--invalid");
+    nameInput.placeholder = "Please input your name";
+    event.preventDefault();
+  } else {
+    if (newCommentText) {
+      addComment(newName, newDate, newCommentText);
+    }
   }
+  comment.reset();
 });
