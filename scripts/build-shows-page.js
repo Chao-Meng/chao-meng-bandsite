@@ -137,5 +137,5 @@ document.getElementById("home").addEventListener("click", function () {
 });
 
 document.getElementById("shows").addEventListener("click", function () {
-  const showsActive = document.getElementById("shows");
+  window.location.href = "../pages/shows.html";
 });

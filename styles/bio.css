@@ -577,6 +577,7 @@
 }
 .comment__button:hover {
   cursor: pointer;
+  background-color: #000000;
 }
 .comment__divider {
   height: 1px;
