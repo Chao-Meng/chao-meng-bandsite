@@ -22,7 +22,11 @@ class BandSiteApi {
       const response = await axios.get(
         `${this.baseUrl}?api_key=${this.apiKey}`
       );
-      console.log(response.data);
-    } catch (error) {}
+      comment.sort((a, b) => {
+        return b.timestamp - a.timestamp;
+      });
+    } catch (error) {
+      console.log(error, " happens when getting comment");
+    }
   }
 }
