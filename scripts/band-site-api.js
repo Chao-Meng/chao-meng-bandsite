@@ -32,6 +32,7 @@ class BandSiteApi {
       console.log(error, " happens when getting comment");
     }
   }
+
   async getShows() {
     try {
       const response = await axios.get(
@@ -40,15 +41,6 @@ class BandSiteApi {
       return response.data;
     } catch (error) {
       console.log(error, " happens when getting shows");
-    }
-  }
-  async deleteComments() {
-    try {
-      const response = await axios.delete(
-        `${this.baseUrl}comments${commentId}`
-      );
-    } catch (error) {
-      console.log(error, " happens when getting comment");
     }
   }
 }

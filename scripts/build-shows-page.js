@@ -118,47 +118,18 @@ function addCard(cardDate, cardVenue, cardLocation) {
   cardContent.appendChild(divider);
 }
 
-// let defaultCards = [
-//   {
-//     date: "Mon Sept 06 2021",
-//     venue: "Ronald Lane",
-//     location: `San Francisco, CA`,
-//   },
-//   {
-//     date: "Tue Sept 21 2021",
-//     venue: "Pier 3 East",
-//     location: `San Francisco, CA`,
-//   },
-//   {
-//     date: "Fri Oct 15 2021",
-//     venue: "View Lounge",
-//     location: `San Francisco, CA`,
-//   },
-//   {
-//     date: "Sat Nov 06 2021",
-//     venue: "Hyatt Agency",
-//     location: `San Francisco, CA`,
-//   },
-//   {
-//     date: "Fri Nov 26 2021",
-//     venue: "Moscow Center",
-//     location: `San Francisco, CA`,
-//   },
-//   {
-//     date: "Wed Dec 15 2021",
-//     venue: "Press Club",
-//     location: `San Francisco, CA`,
-//   },
-// ];
+//listen click the nav menu action
+document.getElementById("home").addEventListener("click", function () {
+  window.location.href = "../index.html";
+});
 
-//load the default cards on the window
-// window.onload = function () {
-//   defaultCards.forEach(function (card) {
-//     addCard(card.date, card.venue, card.location);
-//   });
-// };
+document.getElementById("shows").addEventListener("click", function () {
+  window.location.href = "../pages/shows.html";
+});
+
+//sprint-3
 //create an instance of the BandSiteApi class
-const apiKey = "07976c94-a122-4dae-9ff3-456f446a8ca4";
+const apiKey = "42e72325-5f6b-44ea-9e22-a69dd72a2edb";
 const api = new BandSiteApi(apiKey);
 window.onload = function () {
   api.getShows().then((response) => {
@@ -170,15 +141,6 @@ window.onload = function () {
     });
   });
 };
-
-//listen click the nav menu action
-document.getElementById("home").addEventListener("click", function () {
-  window.location.href = "../index.html";
-});
-
-document.getElementById("shows").addEventListener("click", function () {
-  window.location.href = "../pages/shows.html";
-});
 
 function transferDate(time) {
   let date = new Date(time.date);

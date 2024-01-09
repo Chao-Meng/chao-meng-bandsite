@@ -136,42 +136,6 @@ function addComment(commentName, commentDate, commentContent) {
   let dividerNew = createDivider();
   commentConBig.appendChild(dividerNew);
 }
-/* sprint-2 load the default comments
-let defaultComments = [
-  {
-    name: "Connor Walton",
-    date: "02/17/2021",
-    content: `This is art. This is inexplicable magic expressed in the purest way, everything that makes up 
-       this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.`,
-  },
-  {
-    name: "Emilie Beach",
-    date: "01/19/2021",
-    content: `I feel blessed to have seen them in person. What a show! They were just perfection. If there was
-       one day of my life I could relive, this would be it. What an incredible day.`,
-  },
-  {
-    name: "Miles Acosta",
-    date: "12/20/2020",
-    content: `I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. 
-      Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.`,
-  },
-];
-
-//compare the date string of defaults comments
-function compareDates(a, b) {
-  return new Date(a.date).getTime() - new Date(b.date).getTime();
-}
-
-//sort the default comments in ascending time
-defaultComments.sort(compareDates);
-
-//load the default 3 comments on the window
-window.onload = function () {
-   defaultComments.forEach(function (comment) {
-     addComment(comment.name, comment.date, comment.content);
-   });
- };*/
 
 //listen click the comment button event
 let button = document.querySelector(".comment__button");
@@ -189,8 +153,9 @@ document.getElementById("home").addEventListener("click", function () {
   window.location.href = "../index.html";
 });
 
+//sprint-3
 //create an instance of the BandSiteApi class
-const apiKey = "07976c94-a122-4dae-9ff3-456f446a8ca4";
+const apiKey = "42e72325-5f6b-44ea-9e22-a69dd72a2edb";
 const api = new BandSiteApi(apiKey);
 window.onload = function () {
   api.getComments().then((comments) => {
@@ -211,23 +176,30 @@ function handleSubmit() {
   };
 
   //add new comments that can be stored on the backend
-  api.postComment(commentData).then((response) => {
-    console.log("comment posted", response);
-    let newCommentText = response.comment;
-    let newName = response.name;
-    let newDate = transferDate(response);
-    if (nameInput.value.trim() === "") {
-      nameInput.classList.remove("comment__name");
-      nameInput.classList.add("comment__name--invalid");
-      nameInput.placeholder = "Please input your name";
-      return;
-    } else {
-      if (newCommentText) {
-        addComment(newName, newDate, newCommentText);
+  //get the response from promise when it fulfilled
+  api
+    .postComment(commentData)
+    .then((response) => {
+      console.log("comment posted", response);
+      let newCommentText = response.comment;
+      let newName = response.name;
+      let newDate = transferDate(response);
+      if (nameInput.value.trim() === "") {
+        nameInput.classList.remove("comment__name");
+        nameInput.classList.add("comment__name--invalid");
+        nameInput.placeholder = "Please input your name";
+        return;
+      } else {
+        if (newCommentText) {
+          addComment(newName, newDate, newCommentText);
+        }
       }
-    }
-    comment.reset();
-  });
+      comment.reset();
+    })
+    //get the error when promise was rejected
+    .catch((error) => {
+      console.error(error);
+    });
 }
 
 function transferDate(time) {
