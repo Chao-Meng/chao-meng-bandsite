@@ -1,3 +1,4 @@
+import BandSiteApi from "./band-site-api.js";
 // sprint-2
 function createDiv(className) {
   let divName = document.createElement("div");
@@ -117,43 +118,56 @@ function addCard(cardDate, cardVenue, cardLocation) {
   cardContent.appendChild(divider);
 }
 
-let defaultCards = [
-  {
-    date: "Mon Sept 06 2021",
-    venue: "Ronald Lane",
-    location: `San Francisco, CA`,
-  },
-  {
-    date: "Tue Sept 21 2021",
-    venue: "Pier 3 East",
-    location: `San Francisco, CA`,
-  },
-  {
-    date: "Fri Oct 15 2021",
-    venue: "View Lounge",
-    location: `San Francisco, CA`,
-  },
-  {
-    date: "Sat Nov 06 2021",
-    venue: "Hyatt Agency",
-    location: `San Francisco, CA`,
-  },
-  {
-    date: "Fri Nov 26 2021",
-    venue: "Moscow Center",
-    location: `San Francisco, CA`,
-  },
-  {
-    date: "Wed Dec 15 2021",
-    venue: "Press Club",
-    location: `San Francisco, CA`,
-  },
-];
+// let defaultCards = [
+//   {
+//     date: "Mon Sept 06 2021",
+//     venue: "Ronald Lane",
+//     location: `San Francisco, CA`,
+//   },
+//   {
+//     date: "Tue Sept 21 2021",
+//     venue: "Pier 3 East",
+//     location: `San Francisco, CA`,
+//   },
+//   {
+//     date: "Fri Oct 15 2021",
+//     venue: "View Lounge",
+//     location: `San Francisco, CA`,
+//   },
+//   {
+//     date: "Sat Nov 06 2021",
+//     venue: "Hyatt Agency",
+//     location: `San Francisco, CA`,
+//   },
+//   {
+//     date: "Fri Nov 26 2021",
+//     venue: "Moscow Center",
+//     location: `San Francisco, CA`,
+//   },
+//   {
+//     date: "Wed Dec 15 2021",
+//     venue: "Press Club",
+//     location: `San Francisco, CA`,
+//   },
+// ];
 
 //load the default cards on the window
+// window.onload = function () {
+//   defaultCards.forEach(function (card) {
+//     addCard(card.date, card.venue, card.location);
+//   });
+// };
+//create an instance of the BandSiteApi class
+const apiKey = "07976c94-a122-4dae-9ff3-456f446a8ca4";
+const api = new BandSiteApi(apiKey);
 window.onload = function () {
-  defaultCards.forEach(function (card) {
-    addCard(card.date, card.venue, card.location);
+  api.getShows().then((response) => {
+    console.log("show:", response);
+    response.forEach(function (show) {
+      const newDate = transferDate(show);
+      addCard(newDate, show.place, show.location);
+      console.log("show:", show.place);
+    });
   });
 };
 
@@ -165,3 +179,15 @@ document.getElementById("home").addEventListener("click", function () {
 document.getElementById("shows").addEventListener("click", function () {
   window.location.href = "../pages/shows.html";
 });
+
+function transferDate(time) {
+  let date = new Date(time.date);
+  let month = date.getMonth() + 1;
+  let day = date.getDate();
+  let year = date.getFullYear();
+  month = month < 10 ? `0${month}` : month;
+  day = day < 10 ? `0${day}` : day;
+  let formattedDate = `${month}/${day}/${year}`;
+  console.log(formattedDate);
+  return formattedDate;
+}

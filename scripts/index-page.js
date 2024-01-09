@@ -1,3 +1,4 @@
+import BandSiteApi from "./band-site-api.js";
 // sprint-2
 function createDiv(className) {
   let divName = document.createElement("div");
@@ -135,7 +136,7 @@ function addComment(commentName, commentDate, commentContent) {
   let dividerNew = createDivider();
   commentConBig.appendChild(dividerNew);
 }
-
+/* sprint-2 load the default comments
 let defaultComments = [
   {
     name: "Connor Walton",
@@ -167,39 +168,16 @@ defaultComments.sort(compareDates);
 
 //load the default 3 comments on the window
 window.onload = function () {
-  defaultComments.forEach(function (comment) {
-    addComment(comment.name, comment.date, comment.content);
-  });
-};
+   defaultComments.forEach(function (comment) {
+     addComment(comment.name, comment.date, comment.content);
+   });
+ };*/
+
 //listen click the comment button event
 let button = document.querySelector(".comment__button");
 comment.addEventListener("submit", function (event) {
   event.preventDefault();
-  //pass the input comment value
-  let newCommentText = commentInput.value;
-  let newName = nameInput.value;
-
-  //get the current date in month/day/year format
-  let date = new Date();
-  let month = date.getMonth() + 1;
-  let day = date.getDate();
-  let year = date.getFullYear();
-  month = month < 10 ? `0${month}` : month;
-  day = day < 10 ? `0${day}` : day;
-  let newDate = `${month}/${day}/${year}`;
-
-  //check the input name status
-  if (nameInput.value.trim() === "") {
-    nameInput.classList.remove("comment__name");
-    nameInput.classList.add("comment__name--invalid");
-    nameInput.placeholder = "Please input your name";
-    event.preventDefault();
-  } else {
-    if (newCommentText) {
-      addComment(newName, newDate, newCommentText);
-    }
-  }
-  comment.reset();
+  handleSubmit();
 });
 
 //listen click the nav menu action
@@ -210,3 +188,56 @@ document.getElementById("shows").addEventListener("click", function () {
 document.getElementById("home").addEventListener("click", function () {
   window.location.href = "../index.html";
 });
+
+//create an instance of the BandSiteApi class
+const apiKey = "07976c94-a122-4dae-9ff3-456f446a8ca4";
+const api = new BandSiteApi(apiKey);
+window.onload = function () {
+  api.getComments().then((comments) => {
+    console.log("Comments:", comments);
+    comments.forEach(function (comment) {
+      const newDate = transferDate(comment);
+      addComment(comment.name, newDate, comment.comment);
+    });
+  });
+};
+
+function handleSubmit() {
+  const userName = nameInput.value;
+  const userComment = commentInput.value;
+  const commentData = {
+    name: userName,
+    comment: userComment,
+  };
+
+  //add new comments that can be stored on the backend
+  api.postComment(commentData).then((response) => {
+    console.log("comment posted", response);
+    let newCommentText = response.comment;
+    let newName = response.name;
+    let newDate = transferDate(response);
+    if (nameInput.value.trim() === "") {
+      nameInput.classList.remove("comment__name");
+      nameInput.classList.add("comment__name--invalid");
+      nameInput.placeholder = "Please input your name";
+      return;
+    } else {
+      if (newCommentText) {
+        addComment(newName, newDate, newCommentText);
+      }
+    }
+    comment.reset();
+  });
+}
+
+function transferDate(time) {
+  let date = new Date(time.timestamp);
+  let month = date.getMonth() + 1;
+  let day = date.getDate();
+  let year = date.getFullYear();
+  month = month < 10 ? `0${month}` : month;
+  day = day < 10 ? `0${day}` : day;
+  let formattedDate = `${month}/${day}/${year}`;
+  console.log(formattedDate);
+  return formattedDate;
+}
